@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Siparişler | Admin Panel</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="admin-sidebar">
+      <div class="admin-logo">
+        <img src="images/logo.png" alt="DuranOğlu Perde" style="height: 120px; width: auto; display: block; margin: 0 auto;">
+      </div>
+      <nav class="admin-nav">
+        <a href="admin-dashboard.html">📊 Dashboard</a>
+        <a href="admin-orders.html" class="active">📦 Siparişler</a>
+        <a href="admin-products.html">🛍️ Ürünler</a>
+        <a href="admin-customers.html">👥 Müşteriler</a>
+        <a href="#" onclick="adminLogout()">🚪 Çıkış</a>
+      </nav>
+    </aside>
+
+    <main class="admin-main">
+      <header class="admin-header">
+        <h1>Siparişler</h1>
+        <div class="admin-user">Admin</div>
+      </header>
+
+      <div class="admin-content">
+        <div class="admin-filters">
+          <select id="statusFilter" onchange="filterOrders()">
+            <option value="all">Tüm Siparişler</option>
+            <option value="pending">Bekleyen</option>
+            <option value="processing">İşleniyor</option>
+            <option value="shipped">Kargoda</option>
+            <option value="delivered">Teslim Edildi</option>
+            <option value="cancelled">İptal</option>
+          </select>
+        </div>
+
+        <div class="admin-table-container">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Sipariş No</th>
+                <th>Müşteri</th>
+                <th>Telefon</th>
+                <th>Tarih</th>
+                <th>Tutar</th>
+                <th>Durum</th>
+                <th>İşlem</th>
+              </tr>
+            </thead>
+            <tbody id="ordersTable"></tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="auth.js"></script>
+  <script src="admin.js"></script>
+  <script>
+    checkAdminAuth();
+    loadOrders();
+  </script>
+</body>
+</html>

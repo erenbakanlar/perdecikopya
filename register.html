@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kayıt Ol | DuranOğlu Perde</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container header-content">
+      <a href="index.html" class="logo">
+        <img src="images/logo.png" alt="DuranOğlu Perde" class="logo-img">
+      </a>
+      <nav class="nav">
+        <a href="index.html">Anasayfa</a>
+        <a href="index.html#urunler">Ürünler</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section" style="padding-top: 120px;">
+    <div class="container">
+      <div class="auth-container">
+        <div class="auth-box">
+          <h2>Kayıt Ol</h2>
+          <form id="registerForm" onsubmit="handleRegister(event)">
+            <div class="form-group">
+              <label>Ad Soyad</label>
+              <input type="text" name="fullName" required>
+            </div>
+            <div class="form-group">
+              <label>E-posta</label>
+              <input type="email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label>Telefon</label>
+              <input type="tel" name="phone" required>
+            </div>
+            <div class="form-group">
+              <label>Şifre</label>
+              <input type="password" name="password" required minlength="6">
+            </div>
+            <div class="form-group">
+              <label>Şifre Tekrar</label>
+              <input type="password" name="passwordConfirm" required minlength="6">
+            </div>
+            <button type="submit" class="btn btn-full">Kayıt Ol</button>
+          </form>
+          <p class="auth-switch">Zaten hesabınız var mı? <a href="login.html">Giriş Yapın</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-col">
+        <div class="logo">
+          <img src="images/logo.png" alt="DuranOğlu Perde" class="logo-img">
+        </div>
+        <p>Antalya'nın güvenilir perde montaj ve satış merkezi</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 DuranOğlu Perde. Tüm hakları saklıdır.</p>
+    </div>
+  </footer>
+
+  <script src="api.js"></script>
+  <script src="auth.js"></script>
+</body>
+</html>

@@ -3,8 +3,74 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DuranOğlu Perde | Kaliteli Perde Çözümleri</title>
-  <meta name="description" content="DuranOğlu Perde - Tül, blackout, stor, zebra ve roman perde çeşitleriyle evinize şıklık katıyoruz." />
+  
+  <!-- SEO Meta Tags -->
+  <title>Antalya Perde | Stor, Zebra, Tül Perde Montajı | DuranOğlu Perde</title>
+  <meta name="description" content="Antalya'da perde montajı ve satışı. Stor, zebra, tül, blackout perde çeşitleri. Ücretsiz keşif ve montaj. ☎️ Hemen arayın!" />
+  <meta name="keywords" content="antalya perde, antalya stor perde, antalya zebra perde montajı, antalya tül perde fiyatları, antalya perde montajı" />
+  <meta name="author" content="DuranOğlu Perde" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://duranogluperde.com/" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://duranogluperde.com/" />
+  <meta property="og:title" content="Antalya Perde | Stor, Zebra, Tül Perde Montajı | DuranOğlu Perde" />
+  <meta property="og:description" content="Antalya'da perde montajı ve satışı. Stor, zebra, tül, blackout perde çeşitleri. Ücretsiz keşif ve montaj." />
+  <meta property="og:image" content="https://duranogluperde.com/og-image.jpg" />
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://duranogluperde.com/" />
+  <meta property="twitter:title" content="Antalya Perde | Stor, Zebra, Tül Perde Montajı | DuranOğlu Perde" />
+  <meta property="twitter:description" content="Antalya'da perde montajı ve satışı. Stor, zebra, tül, blackout perde çeşitleri. Ücretsiz keşif ve montaj." />
+  <meta property="twitter:image" content="https://duranogluperde.com/og-image.jpg" />
+  
+  <!-- Local Business Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "DuranOğlu Perde",
+    "image": "https://duranogluperde.com/logo.jpg",
+    "description": "Antalya'da perde montajı ve satışı. Stor, zebra, tül, blackout perde çeşitleri.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Adres bilgisi",
+      "addressLocality": "Antalya",
+      "addressRegion": "Antalya",
+      "postalCode": "07000",
+      "addressCountry": "TR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 36.8969,
+      "longitude": 30.7133
+    },
+    "telephone": "+905XXXXXXXXX",
+    "priceRange": "₺₺",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ],
+        "opens": "09:00",
+        "closes": "19:00"
+      }
+    ],
+    "areaServed": {
+      "@type": "City",
+      "name": "Antalya"
+    }
+  }
+  </script>
+  
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -24,15 +90,17 @@
   <header class="header" id="header">
     <div class="container header-inner">
       <div class="logo">
-        <span class="logo-main">DuranOğlu</span>
-        <span class="logo-sub">Perde</span>
+        <img src="images/logo.png" alt="DuranOğlu Perde" class="logo-img">
       </div>
       <nav class="nav" id="nav">
         <a href="#hero">Ana Sayfa</a>
         <a href="#urunler">Ürünler</a>
         <a href="#kategoriler">Kategoriler</a>
         <a href="#hakkimizda">Hakkımızda</a>
+        <a href="blog.html">Blog</a>
         <a href="#iletisim">Bize Ulaşın</a>
+        <a href="login.html" class="nav-icon" title="Giriş Yap">👤</a>
+        <a href="cart.html" class="nav-icon cart-link" title="Sepetim">🛒 <span class="cart-count">0</span></a>
       </nav>
       <div class="header-actions">
         <a href="https://wa.me/905XXXXXXXXX" target="_blank" class="btn btn-whatsapp">💬 WhatsApp</a>
@@ -238,6 +306,34 @@
           </div>
         </div>
 
+        <div class="product-card" data-cat="zebra">
+          <div class="product-img">
+            <div class="product-img-inner" style="background-image: url('https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?w=400&h=400&fit=crop');"></div>
+            <div class="product-overlay">
+              <a href="#iletisim" class="btn btn-primary btn-sm">Fiyat Al</a>
+            </div>
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Zebra Perde</span>
+            <h3>Zebra Perde – Gri</h3>
+            <div class="product-price">₺320,00 – ₺950,00</div>
+          </div>
+        </div>
+
+        <div class="product-card" data-cat="stor">
+          <div class="product-img">
+            <div class="product-img-inner" style="background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&h=400&fit=crop');"></div>
+            <div class="product-overlay">
+              <a href="#iletisim" class="btn btn-primary btn-sm">Fiyat Al</a>
+            </div>
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Stor Perde</span>
+            <h3>Stor Perde – Bej</h3>
+            <div class="product-price">₺265,00 – ₺820,00</div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -251,8 +347,8 @@
       </div>
       <div class="banners-grid">
 
-        <div class="banner-card banner-large">
-          <div class="banner-bg" style="background: linear-gradient(135deg, rgba(26,26,26,0.85), rgba(15,15,15,0.85)), url('https://images.unsplash.com/photo-1631889993959-41b4e9c6e3c5?w=600&h=800&fit=crop'); background-size: cover; background-position: center;">
+        <div class="banner-card">
+          <div class="banner-bg" style="background: linear-gradient(135deg, rgba(26,26,26,0.85), rgba(15,15,15,0.85)), url('https://images.unsplash.com/photo-1631889993959-41b4e9c6e3c5?w=600&h=400&fit=crop'); background-size: cover; background-position: center;">
           </div>
           <div class="banner-content">
             <h3>Karartma Perde</h3>
@@ -262,7 +358,7 @@
         </div>
 
         <div class="banner-card">
-          <div class="banner-bg" style="background: linear-gradient(135deg, rgba(45,106,79,0.85), rgba(64,145,108,0.85)), url('https://images.unsplash.com/photo-1616594266537-adb2e9a0ae5f?w=400&h=300&fit=crop'); background-size: cover; background-position: center;">
+          <div class="banner-bg" style="background: linear-gradient(135deg, rgba(90,90,90,0.75), rgba(120,120,120,0.75)), url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&h=400&fit=crop'); background-size: cover; background-position: center;">
           </div>
           <div class="banner-content">
             <h3>Tül Perde</h3>
@@ -272,7 +368,7 @@
         </div>
 
         <div class="banner-card">
-          <div class="banner-bg" style="background: linear-gradient(135deg, rgba(123,45,139,0.85), rgba(194,24,91,0.85)), url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=400&h=300&fit=crop'); background-size: cover; background-position: center;">
+          <div class="banner-bg" style="background: linear-gradient(135deg, rgba(110,80,100,0.75), rgba(140,110,130,0.75)), url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&h=400&fit=crop'); background-size: cover; background-position: center;">
           </div>
           <div class="banner-content">
             <h3>Fon Perde</h3>
@@ -282,7 +378,7 @@
         </div>
 
         <div class="banner-card">
-          <div class="banner-bg" style="background: linear-gradient(135deg, rgba(181,69,27,0.85), rgba(224,123,57,0.85)), url('https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=400&h=300&fit=crop'); background-size: cover; background-position: center;">
+          <div class="banner-bg" style="background: linear-gradient(135deg, rgba(120,90,70,0.75), rgba(150,120,100,0.75)), url('https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=600&h=400&fit=crop'); background-size: cover; background-position: center;">
           </div>
           <div class="banner-content">
             <h3>Ahşap Jaluzi</h3>
@@ -292,7 +388,7 @@
         </div>
 
         <div class="banner-card">
-          <div class="banner-bg" style="background: linear-gradient(135deg, rgba(21,101,192,0.85), rgba(66,165,245,0.85)), url('https://images.unsplash.com/photo-1585128792304-c8f7e7a65d7f?w=400&h=300&fit=crop'); background-size: cover; background-position: center;">
+          <div class="banner-bg" style="background: linear-gradient(135deg, rgba(70,90,110,0.75), rgba(100,120,140,0.75)), url('https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?w=600&h=400&fit=crop'); background-size: cover; background-position: center;">
           </div>
           <div class="banner-content">
             <h3>Zebra Perde</h3>
@@ -302,7 +398,7 @@
         </div>
 
         <div class="banner-card">
-          <div class="banner-bg" style="background: linear-gradient(135deg, rgba(74,74,74,0.85), rgba(158,158,158,0.85)), url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=400&h=300&fit=crop&sat=-100'); background-size: cover; background-position: center;">
+          <div class="banner-bg" style="background: linear-gradient(135deg, rgba(74,74,74,0.85), rgba(158,158,158,0.85)), url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&h=400&fit=crop'); background-size: cover; background-position: center;">
           </div>
           <div class="banner-content">
             <h3>Stor Perde</h3>
@@ -378,8 +474,9 @@
         <div class="why-card">
           <div class="why-icon">
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <line x1="12" y1="1" x2="12" y2="23"/>
-              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+              <path d="M8 6h8M8 12h8M8 18h8"/>
+              <path d="M12 2v20"/>
+              <path d="M17 8c-1.5-2-4-3-5-3s-3.5 1-5 3"/>
             </svg>
           </div>
           <h3>Uygun Fiyat</h3>
@@ -406,6 +503,49 @@
           <h3>Müşteri Memnuniyeti</h3>
           <p>Müşteri memnuniyeti garantisiyle hizmet veriyoruz.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG -->
+  <section class="section section-gray" id="blog">
+    <div class="container">
+      <div class="section-header">
+        <h2>Blog Yazılarımız</h2>
+        <p>Perde seçimi ve bakımı hakkında faydalı bilgiler</p>
+      </div>
+      <div class="blog-grid">
+        
+        <article class="blog-card">
+          <div class="blog-card-img" style="background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&h=250&fit=crop');"></div>
+          <div class="blog-card-content">
+            <span class="blog-date">📅 2 Nisan 2025</span>
+            <h3><a href="blog-1-stor-perde-rehberi.html">2025 Stor Perde Fiyatları ve Seçim Rehberi</a></h3>
+            <p>Antalya'da stor perde fiyatları ve modelleri. Eviniz için en uygun stor perdeyi nasıl seçersiniz?</p>
+            <a href="blog-1-stor-perde-rehberi.html" class="blog-link">Devamını Oku →</a>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <div class="blog-card-img" style="background-image: url('https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?w=400&h=250&fit=crop');"></div>
+          <div class="blog-card-content">
+            <span class="blog-date">📅 28 Mart 2025</span>
+            <h3><a href="blog-2-zebra-tul-karsilastirma.html">Zebra Perde mi Tül Perde mi? Hangisi Sizin İçin Uygun?</a></h3>
+            <p>Zebra perde ve tül perde karşılaştırması. Antalya iklimi için en uygun seçim hangisi?</p>
+            <a href="blog-2-zebra-tul-karsilastirma.html" class="blog-link">Devamını Oku →</a>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <div class="blog-card-img" style="background-image: url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=400&h=250&fit=crop');"></div>
+          <div class="blog-card-content">
+            <span class="blog-date">📅 25 Mart 2025</span>
+            <h3><a href="blog-3-antalya-perde-secimi.html">Antalya'da Perde Seçerken Dikkat Edilmesi Gerekenler</a></h3>
+            <p>Antalya'nın özel iklim koşullarında perde seçimi için uzman tavsiyeleri ve ipuçları.</p>
+            <a href="blog-3-antalya-perde-secimi.html" class="blog-link">Devamını Oku →</a>
+          </div>
+        </article>
+
       </div>
     </div>
   </section>
@@ -492,8 +632,7 @@
     <div class="container footer-top">
       <div class="footer-col">
         <div class="logo">
-          <span class="logo-main">DuranOğlu</span>
-          <span class="logo-sub">Perde</span>
+          <img src="images/logo.png" alt="DuranOğlu Perde" class="logo-img">
         </div>
         <p>Kaliteli perde çözümleriyle evinize şıklık ve konfor katıyoruz. Ücretsiz keşif ve montaj hizmetiyle yanınızdayız.</p>
         <div class="footer-social">
@@ -561,6 +700,8 @@
     </svg>
   </a>
 
+  <script src="api.js"></script>
   <script src="script.js"></script>
+  <script src="cart.js"></script>
 </body>
 </html>

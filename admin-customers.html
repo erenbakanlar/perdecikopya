@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Müşteriler | Admin Panel</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="admin-sidebar">
+      <div class="admin-logo">
+        <img src="images/logo.png" alt="DuranOğlu Perde" style="height: 120px; width: auto; display: block; margin: 0 auto;">
+      </div>
+      <nav class="admin-nav">
+        <a href="admin-dashboard.html">📊 Dashboard</a>
+        <a href="admin-orders.html">📦 Siparişler</a>
+        <a href="admin-products.html">🛍️ Ürünler</a>
+        <a href="admin-customers.html" class="active">👥 Müşteriler</a>
+        <a href="#" onclick="adminLogout()">🚪 Çıkış</a>
+      </nav>
+    </aside>
+
+    <main class="admin-main">
+      <header class="admin-header">
+        <h1>Müşteriler</h1>
+      </header>
+
+      <div class="admin-content">
+        <div class="admin-table-container">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Ad Soyad</th>
+                <th>E-posta</th>
+                <th>Telefon</th>
+                <th>Kayıt Tarihi</th>
+                <th>Sipariş Sayısı</th>
+              </tr>
+            </thead>
+            <tbody id="customersTable"></tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="auth.js"></script>
+  <script src="admin.js"></script>
+  <script>
+    checkAdminAuth();
+    loadCustomers();
+  </script>
+</body>
+</html>

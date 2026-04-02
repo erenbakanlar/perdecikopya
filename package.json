@@ -1,12 +1,14 @@
 {
-  "name": "perdeci-website",
+  "name": "duranoglu-perde-frontend",
   "version": "1.0.0",
-  "description": "",
+  "description": "DuranOğlu Perde E-Ticaret Frontend",
   "main": "script.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "backend": "cd backend && npm run dev",
+    "seed": "cd backend && node seed.js"
   },
   "keywords": [],
   "author": "",

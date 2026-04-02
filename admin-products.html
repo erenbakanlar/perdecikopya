@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ürünler | Admin Panel</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="admin-sidebar">
+      <div class="admin-logo">
+        <img src="images/logo.png" alt="DuranOğlu Perde" style="height: 120px; width: auto; display: block; margin: 0 auto;">
+      </div>
+      <nav class="admin-nav">
+        <a href="admin-dashboard.html">📊 Dashboard</a>
+        <a href="admin-orders.html">📦 Siparişler</a>
+        <a href="admin-products.html" class="active">🛍️ Ürünler</a>
+        <a href="admin-customers.html">👥 Müşteriler</a>
+        <a href="#" onclick="adminLogout()">🚪 Çıkış</a>
+      </nav>
+    </aside>
+
+    <main class="admin-main">
+      <header class="admin-header">
+        <h1>Ürünler</h1>
+        <button class="btn" onclick="showAddProductModal()">+ Yeni Ürün</button>
+      </header>
+
+      <div class="admin-content">
+        <div class="admin-table-container">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Görsel</th>
+                <th>Ürün Adı</th>
+                <th>Kategori</th>
+                <th>Fiyat</th>
+                <th>Stok</th>
+                <th>İşlem</th>
+              </tr>
+            </thead>
+            <tbody id="productsTable"></tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div id="productModal" class="modal">
+    <div class="modal-content">
+      <span class="modal-close" onclick="closeProductModal()">&times;</span>
+      <h2 id="modalTitle">Yeni Ürün Ekle</h2>
+      <form id="productForm" onsubmit="saveProduct(event)">
+        <input type="hidden" name="productId">
+        <div class="form-group">
+          <label>Ürün Adı</label>
+          <input type="text" name="name" required>
+        </div>
+        <div class="form-group">
+          <label>Kategori</label>
+          <select name="category" required>
+            <option value="Stor Perde">Stor Perde</option>
+            <option value="Zebra Perde">Zebra Perde</option>
+            <option value="Tül Perde">Tül Perde</option>
+            <option value="Fon Perde">Fon Perde</option>
+            <option value="Karartma Perde">Karartma Perde</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Fiyat (₺)</label>
+          <input type="number" name="price" step="0.01" required>
+        </div>
+        <div class="form-group">
+          <label>Stok</label>
+          <input type="number" name="stock" required>
+        </div>
+        <div class="form-group">
+          <label>Görsel URL</label>
+          <input type="url" name="image" required>
+        </div>
+        <button type="submit" class="btn btn-full">Kaydet</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="auth.js"></script>
+  <script src="admin.js"></script>
+  <script>
+    checkAdminAuth();
+    loadProducts();
+  </script>
+</body>
+</html>
