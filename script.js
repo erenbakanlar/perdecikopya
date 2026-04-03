@@ -1,8 +1,11 @@
 // ===== MOBILE MENU =====
 const hamburger = document.getElementById('hamburger');
-const nav = document.getElementById('nav');
-hamburger.addEventListener('click', () => nav.classList.toggle('open'));
-nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+if (hamburger) {
+  hamburger.addEventListener('click', () => {
+    // Mobile menu toggle logic here if needed
+    console.log('Menu toggled');
+  });
+}
 
 // ===== HERO SLIDER =====
 const slides = document.querySelectorAll('.slide');
@@ -15,16 +18,44 @@ function goTo(i) {
   if (isTransitioning) return;
   isTransitioning = true;
   
-  slides[current].classList.remove('active');
+  const oldSlide = slides[current];
+  
   dots[current].classList.remove('active');
-  
   current = (i + slides.length) % slides.length;
+  dots[current].classList.add('active');
   
-  // Kısa gecikme ile smooth geçiş
+  const newSlide = slides[current];
+  
+  // Yeni slide'ı göster ve fade in yap
+  newSlide.style.display = 'block';
+  newSlide.style.opacity = '0';
+  newSlide.style.zIndex = '2';
+  
+  // Eski slide üstte kalacak
+  oldSlide.style.zIndex = '3';
+  
   setTimeout(() => {
-    slides[current].classList.add('active');
-    dots[current].classList.add('active');
-    setTimeout(() => { isTransitioning = false; }, 800);
+    // Yeni slide fade in
+    newSlide.style.transition = 'opacity 1s ease-in-out';
+    newSlide.style.opacity = '1';
+    
+    // Eski slide fade out
+    oldSlide.style.transition = 'opacity 1s ease-in-out';
+    oldSlide.style.opacity = '0';
+    
+    setTimeout(() => {
+      oldSlide.classList.remove('active');
+      oldSlide.style.display = 'none';
+      oldSlide.style.opacity = '';
+      oldSlide.style.transition = '';
+      oldSlide.style.zIndex = '';
+      
+      newSlide.classList.add('active');
+      newSlide.style.transition = '';
+      newSlide.style.zIndex = '';
+      
+      isTransitioning = false;
+    }, 1000);
   }, 50);
 }
 
@@ -88,8 +119,12 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
 
 // ===== STICKY HEADER =====
 window.addEventListener('scroll', () => {
-  document.getElementById('header').style.boxShadow =
-    window.scrollY > 10 ? '0 4px 20px rgba(0,0,0,0.12)' : '0 2px 8px rgba(0,0,0,0.06)';
+  const header = document.getElementById('header');
+  if (window.scrollY > 100) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
 });
 
 
