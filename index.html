@@ -110,24 +110,16 @@
       </div>
 
       <div class="header-actions">
-        <button class="header-icon-btn" title="Favorilerim">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <button class="cat-icon-btn fav-header-btn" id="favHeaderBtn" title="Favorilerim">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
           </svg>
+          <span class="fav-header-count" id="favHeaderCount" style="display:none">0</span>
         </button>
-        <button class="header-icon-btn" title="Karşılaştır">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <a href="perde-cesitleri.html" class="cat-icon-btn" title="Tüm Ürünler">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
           </svg>
-        </button>
-        <a href="cart.html" class="header-cart-btn">
-          <span class="cart-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-            </svg>
-          </span>
-          <span class="cart-price">₺0,00</span>
-          <span class="cart-count">0</span>
         </a>
       </div>
 
@@ -149,6 +141,49 @@
       </div>
     </div>
   </header>
+
+  <!-- FAVORİLER PANELİ -->
+  <div class="fav-panel" id="favPanel">
+    <div class="fav-panel-overlay" id="favPanelOverlay"></div>
+    <div class="fav-panel-drawer">
+      <div class="fav-panel-header">
+        <span>Favorilerim</span>
+        <button class="fav-panel-close" id="favPanelClose" aria-label="Kapat">&#x2715;</button>
+      </div>
+      <div class="fav-panel-body" id="favPanelBody">
+        <!-- JS tarafından doldurulur -->
+      </div>
+    </div>
+  </div>
+
+  <!-- MOBILE NAV DRAWER -->
+  <div class="mobile-nav" id="mobileNav">
+    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+    <div class="mobile-nav-panel">
+      <div class="mobile-nav-header">
+        <span>Menü</span>
+        <button class="mobile-nav-close" id="mobileNavClose" aria-label="Kapat">&#x2715;</button>
+      </div>
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">Sayfalar</div>
+        <a href="#hero">Ana Sayfa</a>
+        <a href="#hakkimizda">Hakkımızda</a>
+        <a href="#iletisim">Bize Ulaşın</a>
+        <a href="blog.html">Blog</a>
+      </div>
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">Ürün Kategorileri</div>
+        <a href="perde-cesitleri.html#ahsap-jaluzi">Ahşap Jaluzi Perde</a>
+        <a href="perde-cesitleri.html#fon-perde">Fon Perde</a>
+        <a href="perde-cesitleri.html#petek-perde">Petek Kadife Perde</a>
+        <a href="perde-cesitleri.html#karartma-perde">Karartma Perde</a>
+        <a href="perde-cesitleri.html#saten-perde">Saten Güneşlik Perde</a>
+        <a href="perde-cesitleri.html#stor-perde">Stor Perde</a>
+        <a href="perde-cesitleri.html#tul-perde">Tül Perde</a>
+      </div>
+      <div class="mobile-nav-phone">📞 0536 707 1323</div>
+    </div>
+  </div>
 
   <!-- HERO SLIDER -->
   <section class="hero" id="hero">
@@ -237,27 +272,27 @@
           <div class="product-img">
             <div class="product-img-inner" style="background-image: url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=400&h=400&fit=crop');"></div>
             <div class="product-overlay">
-              <a href="#iletisim" class="btn btn-primary btn-sm">Fiyat Al</a>
+              <a class="btn btn-primary btn-sm whatsapp-info-btn" target="_blank" rel="noopener">Daha Fazla Bilgi Al</a>
             </div>
           </div>
           <div class="product-info">
             <span class="product-cat">Fon Perde</span>
             <h3>Koyu Gri Ada Fonluk Büzgülü Perde</h3>
-            <div class="product-price">₺480,00 – ₺1.600,00</div>
+            <button class="fav-btn" aria-label="Favorilere ekle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg></button>
           </div>
         </div>
 
         <div class="product-card" data-cat="fon">
           <div class="product-img">
-            <div class="product-img-inner" style="background-image: url('https://images.unsplash.com/photo-1585128792304-c8f7e7a65d7f?w=400&h=400&fit=crop');"></div>
+            <div class="product-img-inner" style="background-image: url('https://images.unsplash.com/photo-1631889993959-41b4e9c6e3c5?w=400&h=400&fit=crop');"></div>
             <div class="product-overlay">
-              <a href="#iletisim" class="btn btn-primary btn-sm">Fiyat Al</a>
+              <a class="btn btn-primary btn-sm whatsapp-info-btn" target="_blank" rel="noopener">Daha Fazla Bilgi Al</a>
             </div>
           </div>
           <div class="product-info">
             <span class="product-cat">Fon Perde</span>
             <h3>Açık Gri Ada Fonluk Büzgülü Perde</h3>
-            <div class="product-price">₺480,00 – ₺1.600,00</div>
+            <button class="fav-btn" aria-label="Favorilere ekle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg></button>
           </div>
         </div>
 
@@ -265,69 +300,13 @@
           <div class="product-img">
             <div class="product-img-inner" style="background-image: url('https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=400&h=400&fit=crop');"></div>
             <div class="product-overlay">
-              <a href="#iletisim" class="btn btn-primary btn-sm">Fiyat Al</a>
+              <a class="btn btn-primary btn-sm whatsapp-info-btn" target="_blank" rel="noopener">Daha Fazla Bilgi Al</a>
             </div>
           </div>
           <div class="product-info">
             <span class="product-cat">Ahşap Jaluzi Perde</span>
             <h3>Ahşap Jaluzi Perde – Doğal</h3>
-            <div class="product-price">₺1.920,00</div>
-          </div>
-        </div>
-
-        <div class="product-card" data-cat="tul">
-          <div class="product-img">
-            <div class="product-img-inner" style="background-image: url('https://images.unsplash.com/photo-1616594266537-adb2e9a0ae5f?w=400&h=400&fit=crop');"></div>
-            <div class="product-overlay">
-              <a href="#iletisim" class="btn btn-primary btn-sm">Fiyat Al</a>
-            </div>
-          </div>
-          <div class="product-info">
-            <span class="product-cat">Tül Perde</span>
-            <h3>Beyaz Tül Perde – Klasik</h3>
-            <div class="product-price">₺269,00 – ₺850,00</div>
-          </div>
-        </div>
-
-        <div class="product-card" data-cat="karartma">
-          <div class="product-img">
-            <div class="product-img-inner" style="background-image: url('https://images.unsplash.com/photo-1631889993959-41b4e9c6e3c5?w=400&h=400&fit=crop');"></div>
-            <div class="product-overlay">
-              <a href="#iletisim" class="btn btn-primary btn-sm">Fiyat Al</a>
-            </div>
-          </div>
-          <div class="product-info">
-            <span class="product-cat">Karartma Perde</span>
-            <h3>Blackout Karartma Perde – Antrasit</h3>
-            <div class="product-price">₺450,00 – ₺1.200,00</div>
-          </div>
-        </div>
-
-        <div class="product-card" data-cat="zebra">
-          <div class="product-img">
-            <div class="product-img-inner" style="background-image: url('https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?w=400&h=400&fit=crop');"></div>
-            <div class="product-overlay">
-              <a href="#iletisim" class="btn btn-primary btn-sm">Fiyat Al</a>
-            </div>
-          </div>
-          <div class="product-info">
-            <span class="product-cat">Zebra Perde</span>
-            <h3>Zebra Perde – Gri Tonları</h3>
-            <div class="product-price">₺380,00 – ₺950,00</div>
-          </div>
-        </div>
-
-        <div class="product-card" data-cat="stor">
-          <div class="product-img">
-            <div class="product-img-inner" style="background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&h=400&fit=crop');"></div>
-            <div class="product-overlay">
-              <a href="#iletisim" class="btn btn-primary btn-sm">Fiyat Al</a>
-            </div>
-          </div>
-          <div class="product-info">
-            <span class="product-cat">Stor Perde</span>
-            <h3>Stor Perde – Krem</h3>
-            <div class="product-price">₺320,00 – ₺880,00</div>
+            <button class="fav-btn" aria-label="Favorilere ekle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg></button>
           </div>
         </div>
 
@@ -335,13 +314,27 @@
           <div class="product-img">
             <div class="product-img-inner" style="background-image: url('https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=400&h=400&fit=crop');"></div>
             <div class="product-overlay">
-              <a href="#iletisim" class="btn btn-primary btn-sm">Fiyat Al</a>
+              <a class="btn btn-primary btn-sm whatsapp-info-btn" target="_blank" rel="noopener">Daha Fazla Bilgi Al</a>
             </div>
           </div>
           <div class="product-info">
             <span class="product-cat">Tül Perde</span>
-            <h3>Keten Görünümlü Tül Perde</h3>
-            <div class="product-price">₺299,00 – ₺920,00</div>
+            <h3>Beyaz Tül Perde – Klasik</h3>
+            <button class="fav-btn" aria-label="Favorilere ekle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg></button>
+          </div>
+        </div>
+
+        <div class="product-card" data-cat="karartma">
+          <div class="product-img">
+            <div class="product-img-inner" style="background-image: url('https://images.unsplash.com/photo-1631889993959-41b4e9c6e3c5?w=400&h=400&fit=crop');"></div>
+            <div class="product-overlay">
+              <a class="btn btn-primary btn-sm whatsapp-info-btn" target="_blank" rel="noopener">Daha Fazla Bilgi Al</a>
+            </div>
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Karartma Perde</span>
+            <h3>Blackout Karartma Perde – Antrasit</h3>
+            <button class="fav-btn" aria-label="Favorilere ekle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg></button>
           </div>
         </div>
 
@@ -349,13 +342,13 @@
           <div class="product-img">
             <div class="product-img-inner" style="background-image: url('https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?w=400&h=400&fit=crop');"></div>
             <div class="product-overlay">
-              <a href="#iletisim" class="btn btn-primary btn-sm">Fiyat Al</a>
+              <a class="btn btn-primary btn-sm whatsapp-info-btn" target="_blank" rel="noopener">Daha Fazla Bilgi Al</a>
             </div>
           </div>
           <div class="product-info">
             <span class="product-cat">Zebra Perde</span>
-            <h3>Zebra Perde – Gri</h3>
-            <div class="product-price">₺320,00 – ₺950,00</div>
+            <h3>Zebra Perde – Gri Tonları</h3>
+            <button class="fav-btn" aria-label="Favorilere ekle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg></button>
           </div>
         </div>
 
@@ -363,13 +356,55 @@
           <div class="product-img">
             <div class="product-img-inner" style="background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&h=400&fit=crop');"></div>
             <div class="product-overlay">
-              <a href="#iletisim" class="btn btn-primary btn-sm">Fiyat Al</a>
+              <a class="btn btn-primary btn-sm whatsapp-info-btn" target="_blank" rel="noopener">Daha Fazla Bilgi Al</a>
+            </div>
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Stor Perde</span>
+            <h3>Stor Perde – Krem</h3>
+            <button class="fav-btn" aria-label="Favorilere ekle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg></button>
+          </div>
+        </div>
+
+        <div class="product-card" data-cat="tul">
+          <div class="product-img">
+            <div class="product-img-inner" style="background-image: url('https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=400&h=400&fit=crop');"></div>
+            <div class="product-overlay">
+              <a class="btn btn-primary btn-sm whatsapp-info-btn" target="_blank" rel="noopener">Daha Fazla Bilgi Al</a>
+            </div>
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Tül Perde</span>
+            <h3>Keten Görünümlü Tül Perde</h3>
+            <button class="fav-btn" aria-label="Favorilere ekle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg></button>
+          </div>
+        </div>
+
+        <div class="product-card" data-cat="zebra">
+          <div class="product-img">
+            <div class="product-img-inner" style="background-image: url('https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?w=400&h=400&fit=crop');"></div>
+            <div class="product-overlay">
+              <a class="btn btn-primary btn-sm whatsapp-info-btn" target="_blank" rel="noopener">Daha Fazla Bilgi Al</a>
+            </div>
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Zebra Perde</span>
+            <h3>Zebra Perde – Gri</h3>
+            <button class="fav-btn" aria-label="Favorilere ekle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg></button>
+          </div>
+        </div>
+
+        <div class="product-card" data-cat="stor">
+          <div class="product-img">
+            <div class="product-img-inner" style="background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&h=400&fit=crop');"></div>
+            <div class="product-overlay">
+              <a class="btn btn-primary btn-sm whatsapp-info-btn" target="_blank" rel="noopener">Daha Fazla Bilgi Al</a>
             </div>
           </div>
           <div class="product-info">
             <span class="product-cat">Stor Perde</span>
             <h3>Stor Perde – Bej</h3>
-            <div class="product-price">₺265,00 – ₺820,00</div>
+            <button class="fav-btn" aria-label="Favorilere ekle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg></button>
           </div>
         </div>
 
@@ -475,7 +510,7 @@
   <section class="section section-gray">
     <div class="container">
       <div class="section-header">
-        <h2>Neden DuranOğlu Perde?</h2>
+        <h2 class="heading-lined">DuranOğlu Perde'nin Ayrıcalıkları</h2>
       </div>
       <div class="why-grid">
         <div class="why-card">
@@ -511,13 +546,7 @@
           <p>Profesyonel ekibimiz perdelerinizi ücretsiz olarak takar.</p>
         </div>
         <div class="why-card">
-          <div class="why-icon">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M8 6h8M8 12h8M8 18h8"/>
-              <path d="M12 2v20"/>
-              <path d="M17 8c-1.5-2-4-3-5-3s-3.5 1-5 3"/>
-            </svg>
-          </div>
+          <div class="why-icon why-icon-tl">₺</div>
           <h3>Uygun Fiyat</h3>
           <p>Kaliteden ödün vermeden rekabetçi fiyatlar sunuyoruz.</p>
         </div>

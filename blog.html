@@ -40,25 +40,18 @@
         </button>
       </div>
 
+
       <div class="header-actions">
-        <button class="header-icon-btn" title="Favorilerim">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <button class="cat-icon-btn fav-header-btn" id="favHeaderBtn" title="Favorilerim">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
           </svg>
+          <span class="fav-header-count" id="favHeaderCount" style="display:none">0</span>
         </button>
-        <button class="header-icon-btn" title="Karşılaştır">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <a href="perde-cesitleri.html" class="cat-icon-btn" title="Tüm Ürünler">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
           </svg>
-        </button>
-        <a href="cart.html" class="header-cart-btn">
-          <span class="cart-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-            </svg>
-          </span>
-          <span class="cart-price">₺0,00</span>
-          <span class="cart-count">0</span>
         </a>
       </div>
 
@@ -80,6 +73,33 @@
       </div>
     </div>
   </header>
+
+  <!-- MOBILE NAV DRAWER -->
+  <div class="mobile-nav" id="mobileNav">
+    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+    <div class="mobile-nav-panel">
+      <div class="mobile-nav-header">
+        <span>Menü</span>
+        <button class="mobile-nav-close" id="mobileNavClose" aria-label="Kapat">&#x2715;</button>
+      </div>
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">Sayfalar</div>
+        <a href="index.html">Ana Sayfa</a>
+        <a href="index.html#hakkimizda">Hakkımızda</a>
+        <a href="index.html#iletisim">Bize Ulaşın</a>
+        <a href="blog.html">Blog</a>
+      </div>
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">Ürün Kategorileri</div>
+        <a href="perde-cesitleri.html#ahsap-jaluzi">Ahşap Jaluzi Perde</a>
+        <a href="perde-cesitleri.html#fon-perde">Fon Perde</a>
+        <a href="perde-cesitleri.html#karartma-perde">Karartma Perde</a>
+        <a href="perde-cesitleri.html#stor-perde">Stor Perde</a>
+        <a href="perde-cesitleri.html#tul-perde">Tül Perde</a>
+      </div>
+      <div class="mobile-nav-phone">📞 0536 707 1323</div>
+    </div>
+  </div>
 
   <section class="blog-hero" style="background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1600&h=600&fit=crop'); background-size: cover; background-position: center;">
     <div class="container">

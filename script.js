@@ -1,9 +1,164 @@
+// ===== FAVORİ SİSTEMİ =====
+let favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+
+const favHeaderBtn = document.getElementById('favHeaderBtn');
+const favHeaderCount = document.getElementById('favHeaderCount');
+const favPanel = document.getElementById('favPanel');
+const favPanelOverlay = document.getElementById('favPanelOverlay');
+const favPanelClose = document.getElementById('favPanelClose');
+const favPanelBody = document.getElementById('favPanelBody');
+
+function saveFavorites() {
+  localStorage.setItem('favorites', JSON.stringify(favorites));
+}
+
+function updateFavCount() {
+  if (!favHeaderCount) return;
+  if (favorites.length > 0) {
+    favHeaderCount.textContent = favorites.length;
+    favHeaderCount.style.display = 'flex';
+  } else {
+    favHeaderCount.style.display = 'none';
+  }
+}
+
+function getProductData(card) {
+  const imgEl = card.querySelector('.product-img-inner');
+  const imgStyle = imgEl ? imgEl.style.backgroundImage : '';
+  const imgUrl = imgStyle.replace(/url\(['"]?|['"]?\)/g, '');
+  return {
+    id: card.dataset.favId,
+    name: card.querySelector('h3')?.textContent || '',
+    cat: card.querySelector('.product-cat')?.textContent || '',
+    img: imgUrl,
+  };
+}
+
+function renderFavPanel() {
+  if (!favPanelBody) return;
+  if (favorites.length === 0) {
+    favPanelBody.innerHTML = `
+      <div class="fav-empty">
+        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+        </svg>
+        <p>Henüz favori ürün eklemediniz.</p>
+      </div>`;
+    return;
+  }
+  favPanelBody.innerHTML = favorites.map(f => `
+    <div class="fav-item" data-fav-id="${f.id}">
+      <div class="fav-item-img" style="background-image: url('${f.img}')"></div>
+      <div class="fav-item-info">
+        <div class="fav-item-cat">${f.cat}</div>
+        <div class="fav-item-name">${f.name}</div>
+      </div>
+      <button class="fav-item-remove" data-remove-id="${f.id}" aria-label="Kaldır">&#x2715;</button>
+    </div>`).join('');
+}
+
+function openFavPanel() {
+  renderFavPanel();
+  favPanel && favPanel.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeFavPanel() {
+  favPanel && favPanel.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+favHeaderBtn && favHeaderBtn.addEventListener('click', openFavPanel);
+favPanelClose && favPanelClose.addEventListener('click', closeFavPanel);
+favPanelOverlay && favPanelOverlay.addEventListener('click', closeFavPanel);
+
+// Panel içinden favori kaldırma
+favPanelBody && favPanelBody.addEventListener('click', e => {
+  const removeBtn = e.target.closest('.fav-item-remove');
+  if (!removeBtn) return;
+  const id = removeBtn.dataset.removeId;
+  favorites = favorites.filter(f => f.id !== id);
+  saveFavorites();
+  updateFavCount();
+  // Karttaki butonu da güncelle
+  const card = document.querySelector(`.product-card[data-fav-id="${id}"]`);
+  if (card) {
+    const btn = card.querySelector('.fav-btn');
+    if (btn) {
+      btn.classList.remove('active');
+      btn.querySelector('svg').setAttribute('fill', 'none');
+    }
+  }
+  renderFavPanel();
+});
+
+// Ürün kartlarına id ata ve sayfa yüklenince mevcut favorileri yansıt
+document.querySelectorAll('.product-card').forEach((card, i) => {
+  card.dataset.favId = 'prod-' + i;
+});
+
+function syncFavButtons() {
+  document.querySelectorAll('.product-card').forEach(card => {
+    const btn = card.querySelector('.fav-btn');
+    if (!btn) return;
+    const isFav = favorites.some(f => f.id === card.dataset.favId);
+    btn.classList.toggle('active', isFav);
+    btn.querySelector('svg').setAttribute('fill', isFav ? 'currentColor' : 'none');
+  });
+}
+syncFavButtons();
+updateFavCount();
+
+// Ürün kartı fav butonu tıklama
+document.addEventListener('click', e => {
+  const btn = e.target.closest('.fav-btn');
+  if (!btn) return;
+  const card = btn.closest('.product-card');
+  if (!card) return;
+  const id = card.dataset.favId;
+  const isActive = btn.classList.contains('active');
+
+  if (isActive) {
+    favorites = favorites.filter(f => f.id !== id);
+    btn.classList.remove('active');
+    btn.querySelector('svg').setAttribute('fill', 'none');
+  } else {
+    favorites.push(getProductData(card));
+    btn.classList.add('active');
+    btn.querySelector('svg').setAttribute('fill', 'currentColor');
+  }
+  saveFavorites();
+  updateFavCount();
+});
+
 // ===== MOBILE MENU =====
 const hamburger = document.getElementById('hamburger');
-if (hamburger) {
-  hamburger.addEventListener('click', () => {
-    // Mobile menu toggle logic here if needed
-    console.log('Menu toggled');
+const mobileNav = document.getElementById('mobileNav');
+const mobileNavClose = document.getElementById('mobileNavClose');
+const mobileNavOverlay = document.getElementById('mobileNavOverlay');
+
+function openMobileNav() {
+  if (!mobileNav) return;
+  mobileNav.classList.add('open');
+  hamburger && hamburger.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeMobileNav() {
+  if (!mobileNav) return;
+  mobileNav.classList.remove('open');
+  hamburger && hamburger.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+if (hamburger) hamburger.addEventListener('click', openMobileNav);
+if (mobileNavClose) mobileNavClose.addEventListener('click', closeMobileNav);
+if (mobileNavOverlay) mobileNavOverlay.addEventListener('click', closeMobileNav);
+
+// Menüdeki linklere tıklanınca menüyü kapat
+if (mobileNav) {
+  mobileNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMobileNav);
   });
 }
 
@@ -206,16 +361,13 @@ function createAddToCartButton(product) {
   return btn;
 }
 
-// Sayfa yüklendiğinde ürün kartlarına sepete ekle butonu ekle
+// Sayfa yüklendiğinde WhatsApp bilgi butonlarına ürün adını ekle
 document.addEventListener('DOMContentLoaded', () => {
-  const productCards = document.querySelectorAll('.product-card');
-  productCards.forEach((card, index) => {
-    if (products[index]) {
-      const overlay = card.querySelector('.product-overlay');
-      if (overlay) {
-        const addBtn = createAddToCartButton(products[index]);
-        overlay.appendChild(addBtn);
-      }
-    }
+  const WHATSAPP_NUMBER = '905367071323';
+  document.querySelectorAll('.product-card').forEach(card => {
+    const productName = card.querySelector('h3')?.textContent || 'perde';
+    const message = encodeURIComponent(`Merhaba, "${productName}" ürünüyle ilgileniyorum. Daha fazla bilgi alabilir miyim?`);
+    const btn = card.querySelector('.whatsapp-info-btn');
+    if (btn) btn.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
   });
 });

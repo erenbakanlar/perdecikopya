@@ -80,10 +80,16 @@
       </div>
 
       <div class="header-actions">
-        <a href="cart.html" class="header-cart-btn">
-          <span class="cart-icon">🛒</span>
-          <span class="cart-price">₺0,00</span>
-          <span class="cart-count">0</span>
+        <button class="cat-icon-btn fav-header-btn" id="favHeaderBtn" title="Favorilerim">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+          </svg>
+          <span class="fav-header-count" id="favHeaderCount" style="display:none">0</span>
+        </button>
+        <a href="perde-cesitleri.html" class="cat-icon-btn" title="Tüm Ürünler">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+          </svg>
         </a>
       </div>
 
@@ -106,6 +112,35 @@
     </div>
   </header>
 
+  <!-- MOBILE NAV DRAWER -->
+  <div class="mobile-nav" id="mobileNav">
+    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+    <div class="mobile-nav-panel">
+      <div class="mobile-nav-header">
+        <span>Menü</span>
+        <button class="mobile-nav-close" id="mobileNavClose" aria-label="Kapat">&#x2715;</button>
+      </div>
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">Sayfalar</div>
+        <a href="index.html">Ana Sayfa</a>
+        <a href="index.html#hakkimizda">Hakkımızda</a>
+        <a href="index.html#iletisim">Bize Ulaşın</a>
+        <a href="blog.html">Blog</a>
+      </div>
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">Ürün Kategorileri</div>
+        <a href="#ahsap-jaluzi">Ahşap Jaluzi Perde</a>
+        <a href="#fon-perde">Fon Perde</a>
+        <a href="#petek-perde">Petek Kadife Perde</a>
+        <a href="#karartma-perde">Karartma Perde</a>
+        <a href="#saten-perde">Saten Güneşlik Perde</a>
+        <a href="#stor-perde">Stor Perde</a>
+        <a href="#tul-perde">Tül Perde</a>
+      </div>
+      <div class="mobile-nav-phone">📞 0536 707 1323</div>
+    </div>
+  </div>
+
   <!-- PAGE HERO -->
   <section class="page-hero">
     <div class="container">
@@ -120,11 +155,8 @@
       
       <!-- TÜL PERDE -->
       <div class="detail-card" id="tul-perde">
-        <div style="width: 100%; height: 400px; background: linear-gradient(135deg, #e8f5e9, #c8e6c9); border-radius: 8px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 12px rgba(0,0,0,0.08);">
-          <div style="text-align: center; color: #666;">
-            <div style="font-size: 64px; margin-bottom: 12px;">🪟</div>
-            <p style="font-size: 14px; font-weight: 500;">Tül Perde Görseli</p>
-          </div>
+        <div class="detail-img">
+          <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=600&h=400&fit=crop" alt="Tül Perde" />
         </div>
         <div class="detail-content">
           <h2>Tül Perde</h2>
@@ -145,7 +177,7 @@
             </div>
           </div>
           
-          <a href="index.html#iletisim" class="btn btn-primary">Fiyat Teklifi Al</a>
+          <a href="https://wa.me/905464057575?text=Merhaba%2C+t%C3%BCl+perde+modelleri+hakk%C4%B1nda+bilgi+ve+fiyat+teklifi+almak+istiyorum.+Yard%C4%B1mc%C4%B1+olabilir+misiniz%3F" target="_blank" rel="noopener" class="btn btn-primary">Fiyat Teklifi Al</a>
         </div>
       </div>
 
@@ -170,13 +202,10 @@
             </div>
           </div>
           
-          <a href="index.html#iletisim" class="btn btn-primary">Fiyat Teklifi Al</a>
+          <a href="https://wa.me/905464057575?text=Merhaba%2C+fon+perde+modelleri+hakk%C4%B1nda+bilgi+ve+fiyat+teklifi+almak+istiyorum.+Yard%C4%B1mc%C4%B1+olabilir+misiniz%3F" target="_blank" rel="noopener" class="btn btn-primary">Fiyat Teklifi Al</a>
         </div>
-        <div style="width: 100%; height: 400px; background: linear-gradient(135deg, #f3e5f5, #e1bee7); border-radius: 8px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 12px rgba(0,0,0,0.08);">
-          <div style="text-align: center; color: #666;">
-            <div style="font-size: 64px; margin-bottom: 12px;">🏠</div>
-            <p style="font-size: 14px; font-weight: 500;">Fon Perde Görseli</p>
-          </div>
+        <div class="detail-img">
+          <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&h=400&fit=crop" alt="Fon Perde" />
         </div>
       </div>
 
@@ -204,7 +233,7 @@
             </div>
           </div>
           
-          <a href="index.html#iletisim" class="btn btn-primary">Fiyat Teklifi Al</a>
+          <a href="https://wa.me/905464057575?text=Merhaba%2C+karartma+%28blackout%29+perde+modelleri+hakk%C4%B1nda+bilgi+ve+fiyat+teklifi+almak+istiyorum.+Yard%C4%B1mc%C4%B1+olabilir+misiniz%3F" target="_blank" rel="noopener" class="btn btn-primary">Fiyat Teklifi Al</a>
         </div>
       </div>
 
@@ -229,7 +258,7 @@
             </div>
           </div>
           
-          <a href="index.html#iletisim" class="btn btn-primary">Fiyat Teklifi Al</a>
+          <a href="https://wa.me/905464057575?text=Merhaba%2C+stor+perde+modelleri+hakk%C4%B1nda+bilgi+ve+fiyat+teklifi+almak+istiyorum.+Yard%C4%B1mc%C4%B1+olabilir+misiniz%3F" target="_blank" rel="noopener" class="btn btn-primary">Fiyat Teklifi Al</a>
         </div>
         <div class="detail-img">
           <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&h=400&fit=crop" alt="Stor Perde" />
@@ -260,7 +289,7 @@
             </div>
           </div>
           
-          <a href="index.html#iletisim" class="btn btn-primary">Fiyat Teklifi Al</a>
+          <a href="https://wa.me/905464057575?text=Merhaba%2C+zebra+perde+modelleri+hakk%C4%B1nda+bilgi+ve+fiyat+teklifi+almak+istiyorum.+Yard%C4%B1mc%C4%B1+olabilir+misiniz%3F" target="_blank" rel="noopener" class="btn btn-primary">Fiyat Teklifi Al</a>
         </div>
       </div>
 
@@ -285,7 +314,7 @@
             </div>
           </div>
           
-          <a href="index.html#iletisim" class="btn btn-primary">Fiyat Teklifi Al</a>
+          <a href="https://wa.me/905464057575?text=Merhaba%2C+ah%C5%9Fap+jaluzi+perde+modelleri+hakk%C4%B1nda+bilgi+ve+fiyat+teklifi+almak+istiyorum.+Yard%C4%B1mc%C4%B1+olabilir+misiniz%3F" target="_blank" rel="noopener" class="btn btn-primary">Fiyat Teklifi Al</a>
         </div>
         <div class="detail-img">
           <img src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=600&h=400&fit=crop" alt="Ahşap Jaluzi" />
@@ -302,7 +331,7 @@
       <p>Uzman ekibimiz size en uygun perde seçiminde yardımcı olmaktan mutluluk duyar. Ücretsiz keşif için hemen iletişime geçin.</p>
       <div class="cta-actions">
         <a href="index.html#iletisim" class="btn btn-primary">Ücretsiz Keşif İste</a>
-        <a href="https://wa.me/905XXXXXXXXX" target="_blank" class="btn btn-white">WhatsApp ile İletişim</a>
+        <a href="https://wa.me/905464057575" target="_blank" class="btn btn-white">WhatsApp ile İletişim</a>
       </div>
     </div>
   </section>
@@ -328,7 +357,7 @@
               <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
             </svg>
           </a>
-          <a href="https://wa.me/905XXXXXXXXX" aria-label="WhatsApp">
+          <a href="https://wa.me/905464057575" aria-label="WhatsApp">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
               <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
             </svg>
@@ -359,7 +388,7 @@
       <div class="footer-col">
         <h4>İletişim</h4>
         <ul>
-          <li>📞 <a href="tel:+905XXXXXXXXX">05XX XXX XX XX</a></li>
+          <li>📞 <a href="tel:+905464057575">05XX XXX XX XX</a></li>
           <li>✉️ <a href="mailto:info@duranogluperde.com">info@duranogluperde.com</a></li>
           <li>📍 Adres bilgisi eklenecek</li>
           <li>🕐 Pzt–Cmt: 09:00–19:00</li>
@@ -374,7 +403,7 @@
   </footer>
 
   <!-- WHATSAPP FLOAT -->
-  <a href="https://wa.me/905XXXXXXXXX" class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <a href="https://wa.me/905464057575" class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
     <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
     </svg>
