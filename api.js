@@ -114,41 +114,6 @@ const deleteProduct = async (productId) => {
   });
 };
 
-// ============ ORDERS API ============
-
-// Yeni sipariş oluştur
-const createOrder = async (orderData) => {
-  return await apiCall('/orders', {
-    method: 'POST',
-    body: JSON.stringify(orderData)
-  });
-};
-
-// Kullanıcının siparişlerini getir
-const getMyOrders = async () => {
-  return await apiCall('/orders/my-orders');
-};
-
-// Tek sipariş detayı
-const getOrder = async (orderId) => {
-  return await apiCall(`/orders/${orderId}`);
-};
-
-// Tüm siparişleri getir (Admin)
-const getAllOrders = async (filters = {}) => {
-  const queryParams = new URLSearchParams(filters).toString();
-  const endpoint = queryParams ? `/orders?${queryParams}` : '/orders';
-  return await apiCall(endpoint);
-};
-
-// Sipariş durumunu güncelle (Admin)
-const updateOrderStatus = async (orderId, status) => {
-  return await apiCall(`/orders/${orderId}/status`, {
-    method: 'PUT',
-    body: JSON.stringify({ status })
-  });
-};
-
 // ============ HELPER FUNCTIONS ============
 
 // Kullanıcı giriş yapmış mı kontrol et
@@ -176,13 +141,6 @@ window.API = {
   createProduct,
   updateProduct,
   deleteProduct,
-  
-  // Orders
-  createOrder,
-  getMyOrders,
-  getOrder,
-  getAllOrders,
-  updateOrderStatus,
   
   // Helpers
   isAuthenticated,

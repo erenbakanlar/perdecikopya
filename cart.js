@@ -106,17 +106,12 @@ function goToCheckout() {
     showNotification('Sepetiniz boş!');
     return;
   }
-  
-  // Kullanıcı giriş yapmış mı kontrol et
-  if (!API.isAuthenticated()) {
-    showNotification('Sipariş vermek için giriş yapmalısınız!');
-    setTimeout(() => {
-      window.location.href = 'login.html';
-    }, 1500);
-    return;
-  }
-  
-  window.location.href = 'checkout.html';
+
+  const lines = cart.map(item => `- ${item.name} x${item.quantity} = ₺${(item.price * item.quantity).toFixed(2)}`);
+  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  lines.push(`\nToplam: ₺${total.toFixed(2)}`);
+  const message = encodeURIComponent('Merhaba, sipariş vermek istiyorum:\n\n' + lines.join('\n'));
+  window.open(`https://wa.me/905464057575?text=${message}`, '_blank');
 }
 
 function showNotification(message) {

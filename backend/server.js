@@ -1,12 +1,12 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');
-const connectDB = require('./config/db');
+const { connectDB } = require('./config/db');
 
 // Environment variables
 dotenv.config();
 
-// MongoDB bağlantısı
+// MySQL bağlantısı
 connectDB();
 
 const app = express();
@@ -19,7 +19,6 @@ app.use(express.urlencoded({ extended: true }));
 // Routes
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/products', require('./routes/products'));
-app.use('/api/orders', require('./routes/orders'));
 
 // Ana route
 app.get('/', (req, res) => {
@@ -28,8 +27,7 @@ app.get('/', (req, res) => {
     version: '1.0.0',
     endpoints: {
       auth: '/api/auth',
-      products: '/api/products',
-      orders: '/api/orders'
+      products: '/api/products'
     }
   });
 });
@@ -55,6 +53,6 @@ app.use((err, req, res, next) => {
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-  console.log(`🚀 Server ${PORT} portunda çalışıyor`);
-  console.log(`📍 http://localhost:${PORT}`);
+  console.log(`Server ${PORT} portunda çalışıyor`);
+  console.log(`http://localhost:${PORT}`);
 });

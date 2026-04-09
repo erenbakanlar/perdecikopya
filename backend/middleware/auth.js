@@ -5,7 +5,6 @@ const User = require('../models/User');
 exports.protect = async (req, res, next) => {
   let token;
 
-  // Header'dan token al
   if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
     token = req.headers.authorization.split(' ')[1];
   }
@@ -18,12 +17,10 @@ exports.protect = async (req, res, next) => {
   }
 
   try {
-    // Token'ı doğrula
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    
-    // Kullanıcıyı bul
+
     req.user = await User.findById(decoded.id);
-    
+
     if (!req.user) {
       return res.status(401).json({
         success: false,

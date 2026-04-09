@@ -1,88 +1,7 @@
 // Admin panel fonksiyonları
 function loadDashboardStats() {
-  const orders = JSON.parse(localStorage.getItem('orders')) || [];
   const users = JSON.parse(localStorage.getItem('users')) || [];
-  
-  const totalOrders = orders.length;
-  const totalRevenue = orders.reduce((sum, order) => sum + order.total, 0);
-  const pendingOrders = orders.filter(o => o.status === 'pending').length;
-  
-  document.getElementById('totalOrders').textContent = totalOrders;
-  document.getElementById('totalRevenue').textContent = `₺${totalRevenue.toFixed(2)}`;
   document.getElementById('totalCustomers').textContent = users.length;
-  document.getElementById('pendingOrders').textContent = pendingOrders;
-  
-  loadRecentOrders();
-}
-
-function loadRecentOrders() {
-  const orders = JSON.parse(localStorage.getItem('orders')) || [];
-  const recentOrders = orders.slice(-5).reverse();
-  const tbody = document.getElementById('recentOrdersTable');
-  
-  if (recentOrders.length === 0) {
-    tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; padding: 40px;">Henüz sipariş yok</td></tr>';
-    return;
-  }
-  
-  tbody.innerHTML = recentOrders.map(order => `
-    <tr>
-      <td>${order.id}</td>
-      <td>${order.customer.fullName}</td>
-      <td>${new Date(order.date).toLocaleDateString('tr-TR')}</td>
-      <td>₺${order.total.toFixed(2)}</td>
-      <td><span class="status-badge status-${order.status}">${getStatusText(order.status)}</span></td>
-      <td><a href="admin-orders.html" class="btn-small">Detay</a></td>
-    </tr>
-  `).join('');
-}
-
-function loadOrders() {
-  const orders = JSON.parse(localStorage.getItem('orders')) || [];
-  const tbody = document.getElementById('ordersTable');
-  
-  if (orders.length === 0) {
-    tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 40px;">Henüz sipariş yok</td></tr>';
-    return;
-  }
-  
-  tbody.innerHTML = orders.reverse().map(order => `
-    <tr>
-      <td>${order.id}</td>
-      <td>${order.customer.fullName}</td>
-      <td>${order.customer.phone}</td>
-      <td>${new Date(order.date).toLocaleDateString('tr-TR')}</td>
-      <td>₺${order.total.toFixed(2)}</td>
-      <td>
-        <select onchange="updateOrderStatus('${order.id}', this.value)" class="status-select">
-          <option value="pending" ${order.status === 'pending' ? 'selected' : ''}>Bekleyen</option>
-          <option value="processing" ${order.status === 'processing' ? 'selected' : ''}>İşleniyor</option>
-          <option value="shipped" ${order.status === 'shipped' ? 'selected' : ''}>Kargoda</option>
-          <option value="delivered" ${order.status === 'delivered' ? 'selected' : ''}>Teslim Edildi</option>
-          <option value="cancelled" ${order.status === 'cancelled' ? 'selected' : ''}>İptal</option>
-        </select>
-      </td>
-      <td><button class="btn-small" onclick="viewOrderDetails('${order.id}')">Detay</button></td>
-    </tr>
-  `).join('');
-}
-
-function updateOrderStatus(orderId, newStatus) {
-  const orders = JSON.parse(localStorage.getItem('orders')) || [];
-  const order = orders.find(o => o.id === orderId);
-  if (order) {
-    order.status = newStatus;
-    localStorage.setItem('orders', JSON.stringify(orders));
-    showNotification('Sipariş durumu güncellendi');
-  }
-}
-
-function viewOrderDetails(orderId) {
-  const orders = JSON.parse(localStorage.getItem('orders')) || [];
-  const order = orders.find(o => o.id === orderId);
-  if (order) {
-    alert(`Sipariş Detayları:\n\nSipariş No: ${order.id}\nMüşteri: ${order.customer.fullName}\nTelefon: ${order.customer.phone}\nAdres: ${order.customer.address}, ${order.customer.district}/${order.customer.city}\n\nÜrünler:\n${order.items.map(item => `${item.name} x${item.quantity} - ₺${(item.price * item.quantity).toFixed(2)}`).join('\n')}\n\nToplam: ₺${order.total.toFixed(2)}`);
-  }
 }
 
 function loadProducts() {
@@ -170,37 +89,21 @@ function deleteProduct(productId) {
 
 function loadCustomers() {
   const users = JSON.parse(localStorage.getItem('users')) || [];
-  const orders = JSON.parse(localStorage.getItem('orders')) || [];
   const tbody = document.getElementById('customersTable');
-  
+
   if (users.length === 0) {
-    tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; padding: 40px;">Henüz müşteri yok</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="4" style="text-align: center; padding: 40px;">Henüz müşteri yok</td></tr>';
     return;
   }
-  
-  tbody.innerHTML = users.map(user => {
-    const userOrders = orders.filter(o => o.customer.email === user.email).length;
-    return `
-      <tr>
-        <td>${user.fullName}</td>
-        <td>${user.email}</td>
-        <td>${user.phone}</td>
-        <td>${new Date(user.createdAt).toLocaleDateString('tr-TR')}</td>
-        <td>${userOrders}</td>
-      </tr>
-    `;
-  }).join('');
-}
 
-function getStatusText(status) {
-  const statusMap = {
-    pending: 'Bekleyen',
-    processing: 'İşleniyor',
-    shipped: 'Kargoda',
-    delivered: 'Teslim Edildi',
-    cancelled: 'İptal'
-  };
-  return statusMap[status] || status;
+  tbody.innerHTML = users.map(user => `
+    <tr>
+      <td>${user.fullName}</td>
+      <td>${user.email}</td>
+      <td>${user.phone}</td>
+      <td>${new Date(user.createdAt).toLocaleDateString('tr-TR')}</td>
+    </tr>
+  `).join('');
 }
 
 function getProducts() {
@@ -211,32 +114,6 @@ function saveProducts(products) {
   localStorage.setItem('products', JSON.stringify(products));
 }
 
-function filterOrders() {
-  const filter = document.getElementById('statusFilter').value;
-  const orders = JSON.parse(localStorage.getItem('orders')) || [];
-  const filtered = filter === 'all' ? orders : orders.filter(o => o.status === filter);
-  
-  const tbody = document.getElementById('ordersTable');
-  tbody.innerHTML = filtered.reverse().map(order => `
-    <tr>
-      <td>${order.id}</td>
-      <td>${order.customer.fullName}</td>
-      <td>${order.customer.phone}</td>
-      <td>${new Date(order.date).toLocaleDateString('tr-TR')}</td>
-      <td>₺${order.total.toFixed(2)}</td>
-      <td>
-        <select onchange="updateOrderStatus('${order.id}', this.value)" class="status-select">
-          <option value="pending" ${order.status === 'pending' ? 'selected' : ''}>Bekleyen</option>
-          <option value="processing" ${order.status === 'processing' ? 'selected' : ''}>İşleniyor</option>
-          <option value="shipped" ${order.status === 'shipped' ? 'selected' : ''}>Kargoda</option>
-          <option value="delivered" ${order.status === 'delivered' ? 'selected' : ''}>Teslim Edildi</option>
-          <option value="cancelled" ${order.status === 'cancelled' ? 'selected' : ''}>İptal</option>
-        </select>
-      </td>
-      <td><button class="btn-small" onclick="viewOrderDetails('${order.id}')">Detay</button></td>
-    </tr>
-  `).join('');
-}
 
 function showNotification(message) {
   const notification = document.createElement('div');

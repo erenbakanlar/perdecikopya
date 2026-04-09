@@ -6,20 +6,7 @@ const Product = require('../models/Product');
 exports.getProducts = async (req, res) => {
   try {
     const { category, search } = req.query;
-    
-    let query = { isActive: true };
-    
-    // Kategori filtresi
-    if (category) {
-      query.category = category;
-    }
-    
-    // Arama filtresi
-    if (search) {
-      query.name = { $regex: search, $options: 'i' };
-    }
-
-    const products = await Product.find(query).sort({ createdAt: -1 });
+    const products = await Product.find({ isActive: true, category, search });
 
     res.status(200).json({
       success: true,
@@ -88,11 +75,7 @@ exports.createProduct = async (req, res) => {
 // @access  Private/Admin
 exports.updateProduct = async (req, res) => {
   try {
-    const product = await Product.findByIdAndUpdate(
-      req.params.id,
-      req.body,
-      { new: true, runValidators: true }
-    );
+    const product = await Product.findByIdAndUpdate(req.params.id, req.body);
 
     if (!product) {
       return res.status(404).json({

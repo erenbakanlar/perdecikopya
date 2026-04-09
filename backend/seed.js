@@ -1,9 +1,9 @@
-const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+dotenv.config();
+
+const { connectDB, getPool } = require('./config/db');
 const Product = require('./models/Product');
 const User = require('./models/User');
-
-dotenv.config();
 
 const products = [
   {
@@ -90,12 +90,13 @@ const products = [
 
 const seedDatabase = async () => {
   try {
-    await mongoose.connect(process.env.MONGODB_URI);
-    console.log('✅ MongoDB bağlantısı başarılı');
+    await connectDB();
+    console.log('✅ MySQL bağlantısı başarılı');
 
     // Mevcut verileri temizle
-    await Product.deleteMany();
-    await User.deleteMany();
+    const pool = getPool();
+    await pool.query('DELETE FROM products');
+    await pool.query('DELETE FROM users');
     console.log('🗑️  Eski veriler temizlendi');
 
     // Ürünleri ekle
@@ -126,7 +127,7 @@ const seedDatabase = async () => {
     console.log('\n📝 Giriş Bilgileri:');
     console.log('Admin: admin@duranogluperde.com / admin123');
     console.log('Test: test@test.com / test123');
-    
+
     process.exit(0);
   } catch (error) {
     console.error('❌ Hata:', error);

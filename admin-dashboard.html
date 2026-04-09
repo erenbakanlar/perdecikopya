@@ -14,7 +14,6 @@
       </div>
       <nav class="admin-nav">
         <a href="admin-dashboard.html" class="active">📊 Dashboard</a>
-        <a href="admin-orders.html">📦 Siparişler</a>
         <a href="admin-products.html">🛍️ Ürünler</a>
         <a href="admin-customers.html">👥 Müşteriler</a>
         <a href="#" onclick="adminLogout()">🚪 Çıkış</a>
@@ -30,57 +29,14 @@
       <div class="admin-content">
         <div class="stats-grid">
           <div class="stat-card">
-            <div class="stat-icon">📦</div>
-            <div class="stat-info">
-              <div class="stat-value" id="totalOrders">0</div>
-              <div class="stat-label">Toplam Sipariş</div>
-            </div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-icon">💰</div>
-            <div class="stat-info">
-              <div class="stat-value" id="totalRevenue">₺0</div>
-              <div class="stat-label">Toplam Gelir</div>
-            </div>
-          </div>
-          <div class="stat-card">
             <div class="stat-icon">👥</div>
             <div class="stat-info">
               <div class="stat-value" id="totalCustomers">0</div>
               <div class="stat-label">Müşteri Sayısı</div>
             </div>
           </div>
-          <div class="stat-card">
-            <div class="stat-icon">⏳</div>
-            <div class="stat-info">
-              <div class="stat-value" id="pendingOrders">0</div>
-              <div class="stat-label">Bekleyen Sipariş</div>
-            </div>
-          </div>
         </div>
 
-        <div class="admin-section">
-          <h2>Son Siparişler</h2>
-          <div class="admin-table-container">
-            <table class="admin-table">
-              <thead>
-                <tr>
-                  <th>Sipariş No</th>
-                  <th>Müşteri</th>
-                  <th>Tarih</th>
-                  <th>Tutar</th>
-                  <th>Durum</th>
-                  <th>İşlem</th>
-                </tr>
-              </thead>
-              <tbody id="recentOrdersTable">
-                <tr>
-                  <td colspan="6" style="text-align: center; padding: 40px;">Henüz sipariş yok</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
       </div>
     </main>
   </div>

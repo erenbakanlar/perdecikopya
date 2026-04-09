@@ -1,42 +1,74 @@
-const mongoose = require('mongoose');
+const { getPool } = require('../config/db');
 
-const productSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: [true, 'Ürün adı gereklidir'],
-    trim: true
+const Product = {
+  async find({ isActive, category, search } = {}) {
+    const pool = getPool();
+    let sql = 'SELECT * FROM products WHERE 1=1';
+    const params = [];
+
+    if (isActive !== undefined) {
+      sql += ' AND isActive = ?';
+      params.push(isActive ? 1 : 0);
+    }
+    if (category) {
+      sql += ' AND category = ?';
+      params.push(category);
+    }
+    if (search) {
+      sql += ' AND name LIKE ?';
+      params.push(`%${search}%`);
+    }
+    sql += ' ORDER BY createdAt DESC';
+
+    const [rows] = await pool.query(sql, params);
+    return rows;
   },
-  category: {
-    type: String,
-    required: [true, 'Kategori gereklidir'],
-    enum: ['Stor Perde', 'Zebra Perde', 'Tül Perde', 'Fon Perde', 'Karartma Perde', 'Ahşap Jaluzi Perde']
+
+  async findById(id) {
+    const pool = getPool();
+    const [rows] = await pool.query('SELECT * FROM products WHERE id = ?', [id]);
+    return rows[0] || null;
   },
-  price: {
-    type: Number,
-    required: [true, 'Fiyat gereklidir'],
-    min: 0
+
+  async create({ name, category, price, description, image, stock = 0, isActive = true }) {
+    const pool = getPool();
+    const [result] = await pool.query(
+      'INSERT INTO products (name, category, price, description, image, stock, isActive) VALUES (?, ?, ?, ?, ?, ?, ?)',
+      [name, category, price, description, image, stock, isActive ? 1 : 0]
+    );
+    return this.findById(result.insertId);
   },
-  description: {
-    type: String,
-    trim: true
+
+  async findByIdAndUpdate(id, data) {
+    const pool = getPool();
+    const allowed = ['name', 'category', 'price', 'description', 'image', 'stock', 'isActive'];
+    const fields = Object.keys(data).filter(k => allowed.includes(k));
+    if (fields.length === 0) return this.findById(id);
+
+    const sql = `UPDATE products SET ${fields.map(f => `${f} = ?`).join(', ')} WHERE id = ?`;
+    const values = fields.map(f => data[f]);
+    await pool.query(sql, [...values, id]);
+    return this.findById(id);
   },
-  image: {
-    type: String,
-    required: [true, 'Ürün görseli gereklidir']
+
+  async findByIdAndDelete(id) {
+    const pool = getPool();
+    const product = await this.findById(id);
+    if (!product) return null;
+    await pool.query('DELETE FROM products WHERE id = ?', [id]);
+    return product;
   },
-  stock: {
-    type: Number,
-    default: 0,
-    min: 0
+
+  async deleteMany() {
+    const pool = getPool();
+    await pool.query('DELETE FROM products');
   },
-  isActive: {
-    type: Boolean,
-    default: true
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now
+
+  async insertMany(products) {
+    for (const p of products) {
+      await this.create(p);
+    }
   }
-});
+};
 
-module.exports = mongoose.model('Product', productSchema);
+module.exports = Product;

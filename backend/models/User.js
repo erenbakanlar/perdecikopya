@@ -1,59 +1,40 @@
-const mongoose = require('mongoose');
+const { getPool } = require('../config/db');
 const bcrypt = require('bcryptjs');
 
-const userSchema = new mongoose.Schema({
-  fullName: {
-    type: String,
-    required: [true, 'Ad soyad gereklidir'],
-    trim: true
+const User = {
+  async findOne({ email }) {
+    const pool = getPool();
+    const [rows] = await pool.query('SELECT * FROM users WHERE email = ?', [email]);
+    return rows[0] || null;
   },
-  email: {
-    type: String,
-    required: [true, 'E-posta gereklidir'],
-    unique: true,
-    lowercase: true,
-    trim: true,
-    match: [/^\S+@\S+\.\S+$/, 'Geçerli bir e-posta adresi giriniz']
+
+  async findById(id) {
+    const pool = getPool();
+    const [rows] = await pool.query('SELECT * FROM users WHERE id = ?', [id]);
+    return rows[0] || null;
   },
-  password: {
-    type: String,
-    required: [true, 'Şifre gereklidir'],
-    minlength: 6,
-    select: false
+
+  async create({ fullName, email, password, phone, role = 'user' }) {
+    const pool = getPool();
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
+
+    const [result] = await pool.query(
+      'INSERT INTO users (fullName, email, password, phone, role) VALUES (?, ?, ?, ?, ?)',
+      [fullName, email, hashedPassword, phone, role]
+    );
+
+    return this.findById(result.insertId);
   },
-  phone: {
-    type: String,
-    required: [true, 'Telefon numarası gereklidir']
+
+  async comparePassword(candidatePassword, hashedPassword) {
+    return bcrypt.compare(candidatePassword, hashedPassword);
   },
-  role: {
-    type: String,
-    enum: ['user', 'admin'],
-    default: 'user'
-  },
-  address: {
-    street: String,
-    city: String,
-    district: String,
-    zipCode: String
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now
+
+  async deleteMany() {
+    const pool = getPool();
+    await pool.query('DELETE FROM users');
   }
-});
-
-// Şifreyi kaydetmeden önce hash'le
-userSchema.pre('save', async function(next) {
-  if (!this.isModified('password')) return next();
-  
-  const salt = await bcrypt.genSalt(10);
-  this.password = await bcrypt.hash(this.password, salt);
-  next();
-});
-
-// Şifre karşılaştırma metodu
-userSchema.methods.comparePassword = async function(candidatePassword) {
-  return await bcrypt.compare(candidatePassword, this.password);
 };
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = User;

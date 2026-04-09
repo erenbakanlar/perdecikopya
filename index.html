@@ -36,7 +36,7 @@
     "description": "Antalya'da perde montajı ve satışı. Stor, zebra, tül, blackout perde çeşitleri.",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Adres bilgisi",
+      "streetAddress": "Tahılpazarı, İsmet Paşa Cd. No:43",
       "addressLocality": "Antalya",
       "addressRegion": "Antalya",
       "postalCode": "07000",
@@ -47,7 +47,7 @@
       "latitude": 36.8969,
       "longitude": 30.7133
     },
-    "telephone": "+905XXXXXXXXX",
+    "telephone": "+905464057575",
     "priceRange": "₺₺",
     "openingHoursSpecification": [
       {
@@ -86,10 +86,6 @@
         <a href="#iletisim">Bize Ulaşın</a>
         <a href="blog.html">Blog</a>
       </div>
-      <div class="topbar-right">
-        <span class="topbar-phone">📞 0536 707 1323</span>
-        <a href="login.html" class="topbar-user">👤 Bir uzmana görüşün</a>
-      </div>
     </div>
   </div>
 
@@ -100,13 +96,14 @@
         <img src="images/logo.png" alt="DuranOğlu Perde" class="logo-img">
       </a>
       
-      <div class="header-search">
-        <input type="text" placeholder="Ürünleri ara" class="search-input">
+      <div class="header-search" style="position:relative;">
+        <input type="text" placeholder="Ürünleri ara" class="search-input" id="searchInput" autocomplete="off">
         <button class="search-btn">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
           </svg>
         </button>
+        <div class="search-suggestions" id="searchSuggestions"></div>
       </div>
 
       <div class="header-actions">
@@ -121,6 +118,15 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
           </svg>
         </a>
+        <a href="blog.html" class="cat-icon-btn" title="Blog Yazıları">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10l6 6v8a2 2 0 01-2 2z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20v-8H7v8M7 4v4h8" />
+          </svg>
+        </a>
+        <div class="header-divider"></div>
+        <span class="header-contact-phone">📞 0546 405 75 75</span>
+        <a href="https://wa.me/905464057575?text=Merhaba%2C+perde+hakk%C4%B1nda+bilgi+ve+fiyat+teklifi+almak+istiyorum." target="_blank" rel="noopener" class="header-contact-user">👤 Bir uzmana görüşün</a>
       </div>
 
       <button class="hamburger" id="hamburger" aria-label="Menü">
@@ -136,8 +142,10 @@
         <a href="perde-cesitleri.html#petek-perde">Petek Kadife Perde</a>
         <a href="perde-cesitleri.html#karartma-perde">Karartma Perde</a>
         <a href="perde-cesitleri.html#saten-perde">Saten Güneşlik Perde</a>
-        <a href="perde-cesitleri.html#stor-perde">Stor Perde</a>
+        <a href="perde-cesitleri.html#zebra-perde">Zebra Perde</a>
         <a href="perde-cesitleri.html#tul-perde">Tül Perde</a>
+        <a href="perde-cesitleri.html#rustik-perde">Rustik Perde</a>
+        <a href="perde-cesitleri.html#plise-cam-balkon">Plise Cam Balkon</a>
       </div>
     </div>
   </header>
@@ -181,7 +189,7 @@
         <a href="perde-cesitleri.html#stor-perde">Stor Perde</a>
         <a href="perde-cesitleri.html#tul-perde">Tül Perde</a>
       </div>
-      <div class="mobile-nav-phone">📞 0536 707 1323</div>
+      <div class="mobile-nav-phone">📞 0546 405 75 75</div>
     </div>
   </div>
 
@@ -189,7 +197,7 @@
   <section class="hero" id="hero">
     <div class="slider" id="slider">
 
-      <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1600&h=800&fit=crop');">
+      <div class="slide active" style="background-image: url('https://images.pexels.com/photos/7546279/pexels-photo-7546279.jpeg?auto=compress&cs=tinysrgb&w=800');">
         <div class="container slide-inner">
           <div class="slide-content">
             <div class="slide-badge">%50'ye Varan İndirim!</div>
@@ -199,12 +207,12 @@
             <a href="#urunler" class="btn btn-primary">Hemen Keşfet →</a>
           </div>
           <div class="slide-img">
-            <div class="slide-img-box" style="background-image: url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=500&h=500&fit=crop');"></div>
+            <div class="slide-img-box" style="background-image: url('https://images.pexels.com/photos/7546279/pexels-photo-7546279.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
           </div>
         </div>
       </div>
 
-      <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&h=1080&fit=crop&q=80');">
+      <div class="slide" style="background-image: url('https://images.pexels.com/photos/4507866/pexels-photo-4507866.jpeg?auto=compress&cs=tinysrgb&w=800');">
         <div class="container slide-inner">
           <div class="slide-content">
             <div class="slide-badge">Yeni Koleksiyon</div>
@@ -214,7 +222,7 @@
             <a href="#urunler" class="btn btn-primary">Şimdi İncele →</a>
           </div>
           <div class="slide-img">
-            <div class="slide-img-box" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&h=500&fit=crop');"></div>
+            <div class="slide-img-box" style="background-image: url('https://images.pexels.com/photos/4507866/pexels-photo-4507866.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
           </div>
         </div>
       </div>
@@ -222,7 +230,7 @@
         </div>
       </div>
 
-      <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1631889993959-41b4e9c6e3c5?w=1600&h=800&fit=crop');">
+      <div class="slide" style="background-image: url('https://images.pexels.com/photos/1743227/pexels-photo-1743227.jpeg?auto=compress&cs=tinysrgb&w=800');">
         <div class="container slide-inner">
           <div class="slide-content">
             <div class="slide-badge">Karartma Perde</div>
@@ -232,7 +240,7 @@
             <a href="#urunler" class="btn btn-primary">Şimdi Keşfet →</a>
           </div>
           <div class="slide-img">
-            <div class="slide-img-box" style="background-image: url('https://images.unsplash.com/photo-1631889993959-41b4e9c6e3c5?w=500&h=500&fit=crop');"></div>
+            <div class="slide-img-box" style="background-image: url('https://images.pexels.com/photos/1743227/pexels-photo-1743227.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
           </div>
         </div>
       </div>
@@ -260,62 +268,26 @@
         <button class="filter-btn" data-filter="tul">Tül Perde</button>
         <button class="filter-btn" data-filter="fon">Fon Perde</button>
         <button class="filter-btn" data-filter="karartma">Karartma Perde</button>
-        <button class="filter-btn" data-filter="stor">Stor Perde</button>
         <button class="filter-btn" data-filter="zebra">Zebra Perde</button>
         <button class="filter-btn" data-filter="ahsap">Ahşap Jaluzi</button>
+        <button class="filter-btn" data-filter="rustik">Rustik Perde</button>
+        <button class="filter-btn" data-filter="plise">Plise Cam Balkon</button>
+        <button class="filter-btn" data-filter="petek">Petek Kadife</button>
+        <button class="filter-btn" data-filter="saten">Saten Güneşlik</button>
       </div>
 
       <!-- ÜRÜN GRID -->
       <div class="products-grid" id="productsGrid">
 
-        <div class="product-card" data-cat="fon">
-          <div class="product-img">
-            <div class="product-img-inner" style="background-image: url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=400&h=400&fit=crop');"></div>
+        <div class="product-card" data-cat="tul" data-desc="Hafif ve şeffaf yapısıyla mekânınıza ferahlık ve zarafet katan klasik tül perde. Güneş ışığını yumuşatırken içeriye hava akışını engellemeyen doğal dokusuyla yaşam alanlarınızı aydınlatır. Özel ölçüye üretilir, montaj dahildir.">
+          <div class="product-img" data-img1="https://images.pexels.com/photos/8353689/pexels-photo-8353689.jpeg?auto=compress&cs=tinysrgb&w=400&h=400" data-img2="https://images.pexels.com/photos/7546279/pexels-photo-7546279.jpeg?auto=compress&cs=tinysrgb&w=400&h=400" data-current="1">
+            <div class="product-img-inner" style="background-image: url('https://images.pexels.com/photos/8353689/pexels-photo-8353689.jpeg?auto=compress&cs=tinysrgb&w=400&h=400');"></div>
             <div class="product-overlay">
               <a class="btn btn-primary btn-sm whatsapp-info-btn" target="_blank" rel="noopener">Daha Fazla Bilgi Al</a>
+              <button class="btn btn-outline btn-sm incele-btn" onclick="openLightbox(this)">İncele</button>
             </div>
-          </div>
-          <div class="product-info">
-            <span class="product-cat">Fon Perde</span>
-            <h3>Koyu Gri Ada Fonluk Büzgülü Perde</h3>
-            <button class="fav-btn" aria-label="Favorilere ekle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg></button>
-          </div>
-        </div>
-
-        <div class="product-card" data-cat="fon">
-          <div class="product-img">
-            <div class="product-img-inner" style="background-image: url('https://images.unsplash.com/photo-1631889993959-41b4e9c6e3c5?w=400&h=400&fit=crop');"></div>
-            <div class="product-overlay">
-              <a class="btn btn-primary btn-sm whatsapp-info-btn" target="_blank" rel="noopener">Daha Fazla Bilgi Al</a>
-            </div>
-          </div>
-          <div class="product-info">
-            <span class="product-cat">Fon Perde</span>
-            <h3>Açık Gri Ada Fonluk Büzgülü Perde</h3>
-            <button class="fav-btn" aria-label="Favorilere ekle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg></button>
-          </div>
-        </div>
-
-        <div class="product-card" data-cat="ahsap">
-          <div class="product-img">
-            <div class="product-img-inner" style="background-image: url('https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=400&h=400&fit=crop');"></div>
-            <div class="product-overlay">
-              <a class="btn btn-primary btn-sm whatsapp-info-btn" target="_blank" rel="noopener">Daha Fazla Bilgi Al</a>
-            </div>
-          </div>
-          <div class="product-info">
-            <span class="product-cat">Ahşap Jaluzi Perde</span>
-            <h3>Ahşap Jaluzi Perde – Doğal</h3>
-            <button class="fav-btn" aria-label="Favorilere ekle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg></button>
-          </div>
-        </div>
-
-        <div class="product-card" data-cat="tul">
-          <div class="product-img">
-            <div class="product-img-inner" style="background-image: url('https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=400&h=400&fit=crop');"></div>
-            <div class="product-overlay">
-              <a class="btn btn-primary btn-sm whatsapp-info-btn" target="_blank" rel="noopener">Daha Fazla Bilgi Al</a>
-            </div>
+            <button class="photo-switch-btn" onclick="switchPhoto(this)" aria-label="Sonraki fotoğraf">&#8250;</button>
+            <div class="photo-dots"><span class="photo-dot active"></span><span class="photo-dot"></span></div>
           </div>
           <div class="product-info">
             <span class="product-cat">Tül Perde</span>
@@ -324,12 +296,32 @@
           </div>
         </div>
 
-        <div class="product-card" data-cat="karartma">
-          <div class="product-img">
-            <div class="product-img-inner" style="background-image: url('https://images.unsplash.com/photo-1631889993959-41b4e9c6e3c5?w=400&h=400&fit=crop');"></div>
+        <div class="product-card" data-cat="fon" data-desc="Kalın ve gösterişli dokusuyla odanıza sıcaklık ve şıklık katan büzgülü fon perde. Işığı büyük ölçüde keserken ses yalıtımına da katkı sağlar. Her pencere ölçüsüne özel üretilir.">
+          <div class="product-img" data-img1="https://images.pexels.com/photos/7546279/pexels-photo-7546279.jpeg?auto=compress&cs=tinysrgb&w=400&h=400" data-img2="https://images.pexels.com/photos/4946758/pexels-photo-4946758.jpeg?auto=compress&cs=tinysrgb&w=400&h=400" data-current="1">
+            <div class="product-img-inner" style="background-image: url('https://images.pexels.com/photos/7546279/pexels-photo-7546279.jpeg?auto=compress&cs=tinysrgb&w=400&h=400');"></div>
             <div class="product-overlay">
               <a class="btn btn-primary btn-sm whatsapp-info-btn" target="_blank" rel="noopener">Daha Fazla Bilgi Al</a>
+              <button class="btn btn-outline btn-sm incele-btn" onclick="openLightbox(this)">İncele</button>
             </div>
+            <button class="photo-switch-btn" onclick="switchPhoto(this)" aria-label="Sonraki fotoğraf">&#8250;</button>
+            <div class="photo-dots"><span class="photo-dot active"></span><span class="photo-dot"></span></div>
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Fon Perde</span>
+            <h3>Koyu Gri Ada Fonluk Büzgülü Perde</h3>
+            <button class="fav-btn" aria-label="Favorilere ekle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg></button>
+          </div>
+        </div>
+
+        <div class="product-card" data-cat="karartma" data-desc="Özel blackout kumaşıyla güneş ışığını %100 engelleyen karartma perde. Uyku kalitesini artırır, enerji tasarrufu sağlar. Yatak odaları, sinema odaları ve vardiyalı çalışanlar için ideal çözüm.">
+          <div class="product-img" data-img1="https://images.pexels.com/photos/4946758/pexels-photo-4946758.jpeg?auto=compress&cs=tinysrgb&w=400&h=400" data-img2="https://images.pexels.com/photos/1743227/pexels-photo-1743227.jpeg?auto=compress&cs=tinysrgb&w=400&h=400" data-current="1">
+            <div class="product-img-inner" style="background-image: url('https://images.pexels.com/photos/4946758/pexels-photo-4946758.jpeg?auto=compress&cs=tinysrgb&w=400&h=400');"></div>
+            <div class="product-overlay">
+              <a class="btn btn-primary btn-sm whatsapp-info-btn" target="_blank" rel="noopener">Daha Fazla Bilgi Al</a>
+              <button class="btn btn-outline btn-sm incele-btn" onclick="openLightbox(this)">İncele</button>
+            </div>
+            <button class="photo-switch-btn" onclick="switchPhoto(this)" aria-label="Sonraki fotoğraf">&#8250;</button>
+            <div class="photo-dots"><span class="photo-dot active"></span><span class="photo-dot"></span></div>
           </div>
           <div class="product-info">
             <span class="product-cat">Karartma Perde</span>
@@ -338,12 +330,15 @@
           </div>
         </div>
 
-        <div class="product-card" data-cat="zebra">
-          <div class="product-img">
-            <div class="product-img-inner" style="background-image: url('https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?w=400&h=400&fit=crop');"></div>
+        <div class="product-card" data-cat="zebra" data-desc="Şeffaf ve opak bantların dönüşümlü yerleşimiyle ışık kontrolünü elinize alan modern zebra perde. Gün boyunca istediğiniz aydınlık seviyesini kolayca ayarlayabilirsiniz. Mekanizması Türkiye garantilidir.">
+          <div class="product-img" data-img1="https://images.pexels.com/photos/845248/pexels-photo-845248.jpeg?auto=compress&cs=tinysrgb&w=400&h=400" data-img2="https://images.pexels.com/photos/24182748/pexels-photo-24182748.jpeg?auto=compress&cs=tinysrgb&w=400&h=400" data-current="1">
+            <div class="product-img-inner" style="background-image: url('https://images.pexels.com/photos/845248/pexels-photo-845248.jpeg?auto=compress&cs=tinysrgb&w=400&h=400');"></div>
             <div class="product-overlay">
               <a class="btn btn-primary btn-sm whatsapp-info-btn" target="_blank" rel="noopener">Daha Fazla Bilgi Al</a>
+              <button class="btn btn-outline btn-sm incele-btn" onclick="openLightbox(this)">İncele</button>
             </div>
+            <button class="photo-switch-btn" onclick="switchPhoto(this)" aria-label="Sonraki fotoğraf">&#8250;</button>
+            <div class="photo-dots"><span class="photo-dot active"></span><span class="photo-dot"></span></div>
           </div>
           <div class="product-info">
             <span class="product-cat">Zebra Perde</span>
@@ -352,58 +347,87 @@
           </div>
         </div>
 
-        <div class="product-card" data-cat="stor">
-          <div class="product-img">
-            <div class="product-img-inner" style="background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&h=400&fit=crop');"></div>
+        <div class="product-card" data-cat="ahsap" data-desc="Doğal ahşap lamellerden üretilen jaluzi perde, mekânınıza sıcak ve organik bir atmosfer katar. Lamel açısını ayarlayarak mahremiyet ile ışık arasında mükemmel dengeyi kurarsınız. Uzun ömürlü ve dayanıklı yapısıyla yatırım değeri taşır.">
+          <div class="product-img" data-img1="https://images.pexels.com/photos/6263026/pexels-photo-6263026.jpeg?auto=compress&cs=tinysrgb&w=400&h=400" data-img2="https://images.pexels.com/photos/6585759/pexels-photo-6585759.jpeg?auto=compress&cs=tinysrgb&w=400&h=400" data-current="1">
+            <div class="product-img-inner" style="background-image: url('https://images.pexels.com/photos/6263026/pexels-photo-6263026.jpeg?auto=compress&cs=tinysrgb&w=400&h=400');"></div>
             <div class="product-overlay">
               <a class="btn btn-primary btn-sm whatsapp-info-btn" target="_blank" rel="noopener">Daha Fazla Bilgi Al</a>
+              <button class="btn btn-outline btn-sm incele-btn" onclick="openLightbox(this)">İncele</button>
             </div>
+            <button class="photo-switch-btn" onclick="switchPhoto(this)" aria-label="Sonraki fotoğraf">&#8250;</button>
+            <div class="photo-dots"><span class="photo-dot active"></span><span class="photo-dot"></span></div>
           </div>
           <div class="product-info">
-            <span class="product-cat">Stor Perde</span>
-            <h3>Stor Perde – Krem</h3>
+            <span class="product-cat">Ahşap Jaluzi Perde</span>
+            <h3>Ahşap Jaluzi Perde – Doğal</h3>
             <button class="fav-btn" aria-label="Favorilere ekle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg></button>
           </div>
         </div>
 
-        <div class="product-card" data-cat="tul">
-          <div class="product-img">
-            <div class="product-img-inner" style="background-image: url('https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=400&h=400&fit=crop');"></div>
+        <div class="product-card" data-cat="rustik" data-desc="Doğal keten dokusundan ilham alan rustik perde, sade ve samimi bir dekorasyon anlayışı sunar. Ham bez görünümüyle bohem ve kırsal tarzlı mekânlara kusursuz uyum sağlar. Nefes alan yapısıyla sağlıklı bir iç ortam oluşturur.">
+          <div class="product-img" data-img1="https://images.pexels.com/photos/5865276/pexels-photo-5865276.jpeg?auto=compress&cs=tinysrgb&w=400&h=400" data-img2="https://images.pexels.com/photos/8353689/pexels-photo-8353689.jpeg?auto=compress&cs=tinysrgb&w=400&h=400" data-current="1">
+            <div class="product-img-inner" style="background-image: url('https://images.pexels.com/photos/5865276/pexels-photo-5865276.jpeg?auto=compress&cs=tinysrgb&w=400&h=400');"></div>
             <div class="product-overlay">
               <a class="btn btn-primary btn-sm whatsapp-info-btn" target="_blank" rel="noopener">Daha Fazla Bilgi Al</a>
+              <button class="btn btn-outline btn-sm incele-btn" onclick="openLightbox(this)">İncele</button>
             </div>
+            <button class="photo-switch-btn" onclick="switchPhoto(this)" aria-label="Sonraki fotoğraf">&#8250;</button>
+            <div class="photo-dots"><span class="photo-dot active"></span><span class="photo-dot"></span></div>
           </div>
           <div class="product-info">
-            <span class="product-cat">Tül Perde</span>
-            <h3>Keten Görünümlü Tül Perde</h3>
+            <span class="product-cat">Rustik Perde</span>
+            <h3>Rustik Keten Perde – Doğal</h3>
             <button class="fav-btn" aria-label="Favorilere ekle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg></button>
           </div>
         </div>
 
-        <div class="product-card" data-cat="zebra">
-          <div class="product-img">
-            <div class="product-img-inner" style="background-image: url('https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?w=400&h=400&fit=crop');"></div>
+        <div class="product-card" data-cat="plise" data-desc="Cam balkon ve PVC doğramalar için tasarlanmış plise perde, katlanır yapısıyla maksimum alan tasarrufu sağlar. Rüzgar ve tozlanmaya karşı dayanıklı özel kumaşı, balkon kullanımını dört mevsime taşır.">
+          <div class="product-img" data-img1="https://images.pexels.com/photos/24182748/pexels-photo-24182748.jpeg?auto=compress&cs=tinysrgb&w=400&h=400" data-img2="https://images.pexels.com/photos/845248/pexels-photo-845248.jpeg?auto=compress&cs=tinysrgb&w=400&h=400" data-current="1">
+            <div class="product-img-inner" style="background-image: url('https://images.pexels.com/photos/24182748/pexels-photo-24182748.jpeg?auto=compress&cs=tinysrgb&w=400&h=400');"></div>
             <div class="product-overlay">
               <a class="btn btn-primary btn-sm whatsapp-info-btn" target="_blank" rel="noopener">Daha Fazla Bilgi Al</a>
+              <button class="btn btn-outline btn-sm incele-btn" onclick="openLightbox(this)">İncele</button>
             </div>
+            <button class="photo-switch-btn" onclick="switchPhoto(this)" aria-label="Sonraki fotoğraf">&#8250;</button>
+            <div class="photo-dots"><span class="photo-dot active"></span><span class="photo-dot"></span></div>
           </div>
           <div class="product-info">
-            <span class="product-cat">Zebra Perde</span>
-            <h3>Zebra Perde – Gri</h3>
+            <span class="product-cat">Plise Cam Balkon</span>
+            <h3>Plise Cam Balkon – Şeffaf</h3>
             <button class="fav-btn" aria-label="Favorilere ekle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg></button>
           </div>
         </div>
 
-        <div class="product-card" data-cat="stor">
-          <div class="product-img">
-            <div class="product-img-inner" style="background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&h=400&fit=crop');"></div>
+        <div class="product-card" data-cat="petek" data-desc="Petek yapısındaki hava cepleri sayesinde mükemmel ısı yalıtımı sağlayan kadife perde. Kışın ısıyı içeride tutar, yazın serin ortam oluşturur. Kadife dokusu mekâna lüks ve zarif bir görünüm kazandırır.">
+          <div class="product-img" data-img1="https://images.pexels.com/photos/6585759/pexels-photo-6585759.jpeg?auto=compress&cs=tinysrgb&w=400&h=400" data-img2="https://images.pexels.com/photos/4946758/pexels-photo-4946758.jpeg?auto=compress&cs=tinysrgb&w=400&h=400" data-current="1">
+            <div class="product-img-inner" style="background-image: url('https://images.pexels.com/photos/6585759/pexels-photo-6585759.jpeg?auto=compress&cs=tinysrgb&w=400&h=400');"></div>
             <div class="product-overlay">
               <a class="btn btn-primary btn-sm whatsapp-info-btn" target="_blank" rel="noopener">Daha Fazla Bilgi Al</a>
+              <button class="btn btn-outline btn-sm incele-btn" onclick="openLightbox(this)">İncele</button>
             </div>
+            <button class="photo-switch-btn" onclick="switchPhoto(this)" aria-label="Sonraki fotoğraf">&#8250;</button>
+            <div class="photo-dots"><span class="photo-dot active"></span><span class="photo-dot"></span></div>
           </div>
           <div class="product-info">
-            <span class="product-cat">Stor Perde</span>
-            <h3>Stor Perde – Bej</h3>
+            <span class="product-cat">Petek Kadife</span>
+            <h3>Petek Kadife Perde – Antrasit</h3>
+            <button class="fav-btn" aria-label="Favorilere ekle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg></button>
+          </div>
+        </div>
+
+        <div class="product-card" data-cat="saten" data-desc="Parlak saten yüzeyiyle güneş ışığını yansıtan güneşlik perde, UV koruması sağlarken mekânı aydınlık tutar. İpeksi dokusu ve akışkan düşüşüyle her pencereye sofistike bir görünüm katar.">
+          <div class="product-img" data-img1="https://images.pexels.com/photos/1743227/pexels-photo-1743227.jpeg?auto=compress&cs=tinysrgb&w=400&h=400" data-img2="https://images.pexels.com/photos/5865276/pexels-photo-5865276.jpeg?auto=compress&cs=tinysrgb&w=400&h=400" data-current="1">
+            <div class="product-img-inner" style="background-image: url('https://images.pexels.com/photos/1743227/pexels-photo-1743227.jpeg?auto=compress&cs=tinysrgb&w=400&h=400');"></div>
+            <div class="product-overlay">
+              <a class="btn btn-primary btn-sm whatsapp-info-btn" target="_blank" rel="noopener">Daha Fazla Bilgi Al</a>
+              <button class="btn btn-outline btn-sm incele-btn" onclick="openLightbox(this)">İncele</button>
+            </div>
+            <button class="photo-switch-btn" onclick="switchPhoto(this)" aria-label="Sonraki fotoğraf">&#8250;</button>
+            <div class="photo-dots"><span class="photo-dot active"></span><span class="photo-dot"></span></div>
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Saten Güneşlik</span>
+            <h3>Saten Güneşlik Perde – Krem</h3>
             <button class="fav-btn" aria-label="Favorilere ekle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg></button>
           </div>
         </div>
@@ -422,7 +446,7 @@
       <div class="banners-grid">
 
         <div class="banner-card">
-          <div class="banner-bg" style="background: linear-gradient(135deg, rgba(26,26,26,0.85), rgba(15,15,15,0.85)), url('https://images.unsplash.com/photo-1631889993959-41b4e9c6e3c5?w=600&h=400&fit=crop'); background-size: cover; background-position: center;">
+          <div class="banner-bg" style="background: linear-gradient(135deg, rgba(26,26,26,0.85), rgba(15,15,15,0.85)), url('https://images.pexels.com/photos/1743227/pexels-photo-1743227.jpeg?auto=compress&cs=tinysrgb&w=800'); background-size: cover; background-position: center;">
           </div>
           <div class="banner-content">
             <h3>Karartma Perde</h3>
@@ -432,7 +456,7 @@
         </div>
 
         <div class="banner-card">
-          <div class="banner-bg" style="background: linear-gradient(135deg, rgba(90,90,90,0.75), rgba(120,120,120,0.75)), url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&h=400&fit=crop'); background-size: cover; background-position: center;">
+          <div class="banner-bg" style="background: linear-gradient(135deg, rgba(90,90,90,0.75), rgba(120,120,120,0.75)), url('https://images.pexels.com/photos/7546279/pexels-photo-7546279.jpeg?auto=compress&cs=tinysrgb&w=800'); background-size: cover; background-position: center;">
           </div>
           <div class="banner-content">
             <h3>Tül Perde</h3>
@@ -442,7 +466,7 @@
         </div>
 
         <div class="banner-card">
-          <div class="banner-bg" style="background: linear-gradient(135deg, rgba(110,80,100,0.75), rgba(140,110,130,0.75)), url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&h=400&fit=crop'); background-size: cover; background-position: center;">
+          <div class="banner-bg" style="background: linear-gradient(135deg, rgba(110,80,100,0.75), rgba(140,110,130,0.75)), url('https://images.pexels.com/photos/7546279/pexels-photo-7546279.jpeg?auto=compress&cs=tinysrgb&w=800'); background-size: cover; background-position: center;">
           </div>
           <div class="banner-content">
             <h3>Fon Perde</h3>
@@ -452,7 +476,7 @@
         </div>
 
         <div class="banner-card">
-          <div class="banner-bg" style="background: linear-gradient(135deg, rgba(120,90,70,0.75), rgba(150,120,100,0.75)), url('https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=600&h=400&fit=crop'); background-size: cover; background-position: center;">
+          <div class="banner-bg" style="background: linear-gradient(135deg, rgba(120,90,70,0.75), rgba(150,120,100,0.75)), url('https://images.pexels.com/photos/6263026/pexels-photo-6263026.jpeg?auto=compress&cs=tinysrgb&w=800'); background-size: cover; background-position: center;">
           </div>
           <div class="banner-content">
             <h3>Ahşap Jaluzi</h3>
@@ -462,7 +486,7 @@
         </div>
 
         <div class="banner-card">
-          <div class="banner-bg" style="background: linear-gradient(135deg, rgba(70,90,110,0.75), rgba(100,120,140,0.75)), url('https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?w=600&h=400&fit=crop'); background-size: cover; background-position: center;">
+          <div class="banner-bg" style="background: linear-gradient(135deg, rgba(70,90,110,0.75), rgba(100,120,140,0.75)), url('https://images.pexels.com/photos/845248/pexels-photo-845248.jpeg?auto=compress&cs=tinysrgb&w=800'); background-size: cover; background-position: center;">
           </div>
           <div class="banner-content">
             <h3>Zebra Perde</h3>
@@ -472,7 +496,7 @@
         </div>
 
         <div class="banner-card">
-          <div class="banner-bg" style="background: linear-gradient(135deg, rgba(74,74,74,0.85), rgba(158,158,158,0.85)), url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&h=400&fit=crop'); background-size: cover; background-position: center;">
+          <div class="banner-bg" style="background: linear-gradient(135deg, rgba(74,74,74,0.85), rgba(158,158,158,0.85)), url('https://images.pexels.com/photos/24182748/pexels-photo-24182748.jpeg?auto=compress&cs=tinysrgb&w=800'); background-size: cover; background-position: center;">
           </div>
           <div class="banner-content">
             <h3>Stor Perde</h3>
@@ -489,7 +513,7 @@
   <section class="section" id="hakkimizda">
     <div class="container about-grid">
       <div class="about-img">
-        <div class="about-img-box" style="background-image: url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=500&h=700&fit=crop');"></div>
+        <div class="about-img-box" style="background-image: url('https://images.pexels.com/photos/7546279/pexels-photo-7546279.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
       </div>
       <div class="about-text">
         <h2>Kaliteyi Evinize Getiriyoruz</h2>
@@ -507,7 +531,7 @@
   </section>
 
   <!-- NEDEN BİZ -->
-  <section class="section section-gray">
+  <section class="section section-dark">
     <div class="container">
       <div class="section-header">
         <h2 class="heading-lined">DuranOğlu Perde'nin Ayrıcalıkları</h2>
@@ -576,7 +600,7 @@
   </section>
 
   <!-- BLOG -->
-  <section class="section section-gray" id="blog">
+  <section class="section section-dark" id="blog">
     <div class="container">
       <div class="section-header">
         <h2>Blog Yazılarımız</h2>
@@ -585,7 +609,7 @@
       <div class="blog-grid">
         
         <article class="blog-card">
-          <div class="blog-card-img" style="background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&h=250&fit=crop');"></div>
+          <div class="blog-card-img" style="background-image: url('https://images.pexels.com/photos/24182748/pexels-photo-24182748.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
           <div class="blog-card-content">
             <span class="blog-date">📅 2 Nisan 2025</span>
             <h3><a href="blog-1-stor-perde-rehberi.html">2025 Stor Perde Fiyatları ve Seçim Rehberi</a></h3>
@@ -595,7 +619,7 @@
         </article>
 
         <article class="blog-card">
-          <div class="blog-card-img" style="background-image: url('https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?w=400&h=250&fit=crop');"></div>
+          <div class="blog-card-img" style="background-image: url('https://images.pexels.com/photos/845248/pexels-photo-845248.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
           <div class="blog-card-content">
             <span class="blog-date">📅 28 Mart 2025</span>
             <h3><a href="blog-2-zebra-tul-karsilastirma.html">Zebra Perde mi Tül Perde mi? Hangisi Sizin İçin Uygun?</a></h3>
@@ -605,7 +629,7 @@
         </article>
 
         <article class="blog-card">
-          <div class="blog-card-img" style="background-image: url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=400&h=250&fit=crop');"></div>
+          <div class="blog-card-img" style="background-image: url('https://images.pexels.com/photos/7546279/pexels-photo-7546279.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
           <div class="blog-card-content">
             <span class="blog-date">📅 25 Mart 2025</span>
             <h3><a href="blog-3-antalya-perde-secimi.html">Antalya'da Perde Seçerken Dikkat Edilmesi Gerekenler</a></h3>
@@ -631,7 +655,7 @@
             <div class="contact-icon">📞</div>
             <div>
               <h3>Telefon</h3>
-              <a href="tel:+905XXXXXXXXX">05XX XXX XX XX</a>
+              <a href="tel:+905464057575">0546 405 75 75</a>
             </div>
           </div>
           <div class="contact-item">
@@ -652,7 +676,7 @@
             <div class="contact-icon">📍</div>
             <div>
               <h3>Adres</h3>
-              <p>Adres bilgisi eklenecek</p>
+              <p>Tahılpazarı, İsmet Paşa Cd. No:43, 07040 Muratpaşa/Antalya</p>
             </div>
           </div>
           <div class="contact-item">
@@ -747,9 +771,9 @@
       <div class="footer-col">
         <h4>İletişim</h4>
         <ul>
-          <li>📞 <a href="tel:+905XXXXXXXXX">05XX XXX XX XX</a></li>
+          <li>📞 <a href="tel:+905464057575">0546 405 75 75</a></li>
           <li>✉️ <a href="mailto:info@duranogluperde.com">info@duranogluperde.com</a></li>
-          <li>📍 Adres bilgisi eklenecek</li>
+          <li>📍 Tahılpazarı, İsmet Paşa Cd. No:43, 07040 Muratpaşa/Antalya</li>
           <li>🕐 Pzt–Cmt: 09:00–19:00</li>
         </ul>
       </div>
@@ -771,5 +795,63 @@
   <script src="api.js"></script>
   <script src="script.js"></script>
   <script src="cart.js"></script>
+  <script>
+    (function() {
+      const categories = [
+        { name: 'Ahşap Jaluzi Perde', url: 'perde-cesitleri.html#ahsap-jaluzi' },
+        { name: 'Fon Perde',          url: 'perde-cesitleri.html#fon-perde' },
+        { name: 'Petek Kadife Perde', url: 'perde-cesitleri.html#petek-perde' },
+        { name: 'Karartma Perde',     url: 'perde-cesitleri.html#karartma-perde' },
+        { name: 'Saten Güneşlik Perde', url: 'perde-cesitleri.html#saten-perde' },
+        { name: 'Zebra Perde',        url: 'perde-cesitleri.html#zebra-perde' },
+        { name: 'Tül Perde',          url: 'perde-cesitleri.html#tul-perde' },
+        { name: 'Rustik Perde',       url: 'perde-cesitleri.html#rustik-perde' },
+        { name: 'Plise Cam Balkon',   url: 'perde-cesitleri.html#plise-cam-balkon' },
+      ];
+
+      const input = document.getElementById('searchInput');
+      const box   = document.getElementById('searchSuggestions');
+
+      input.addEventListener('input', function() {
+        const q = this.value.trim().toLowerCase();
+        box.innerHTML = '';
+        if (!q) { box.classList.remove('active'); return; }
+
+        const matches = categories.filter(c => c.name.toLowerCase().includes(q));
+        if (!matches.length) { box.classList.remove('active'); return; }
+
+        matches.forEach(function(cat) {
+          const item = document.createElement('div');
+          item.className = 'search-suggestion-item';
+          item.textContent = cat.name;
+          item.addEventListener('click', function() {
+            window.location.href = cat.url;
+          });
+          box.appendChild(item);
+        });
+        box.classList.add('active');
+      });
+
+      document.addEventListener('click', function(e) {
+        if (!input.contains(e.target) && !box.contains(e.target)) {
+          box.classList.remove('active');
+        }
+      });
+    })();
+  </script>
+
+  <!-- LİGHTBOX -->
+  <div id="lightbox" onclick="closeLightboxOnBg(event)">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+      <img id="lightboxImg" src="" alt="Ürün Görseli">
+      <div class="lightbox-info">
+        <span class="lightbox-cat" id="lightboxCat"></span>
+        <h3 class="lightbox-title" id="lightboxTitle"></h3>
+        <p class="lightbox-desc" id="lightboxDesc"></p>
+        <a class="btn btn-primary lightbox-wa" id="lightboxWa" href="#" target="_blank" rel="noopener">WhatsApp ile Bilgi Al</a>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

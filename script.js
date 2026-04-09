@@ -1,3 +1,53 @@
+// ===== LİGHTBOX =====
+function openLightbox(btn) {
+  const card = btn.closest('.product-card');
+  const imgDiv = btn.closest('.product-img');
+  const current = imgDiv.dataset.current || '1';
+  const imgUrl = imgDiv.dataset['img' + current];
+
+  const cat = card.querySelector('.product-cat')?.textContent || '';
+  const title = card.querySelector('h3')?.textContent || '';
+  const desc = card.dataset.desc || '';
+  const waMsg = encodeURIComponent(`Merhaba, "${title}" ürünüyle ilgileniyorum. Daha fazla bilgi alabilir miyim?`);
+
+  document.getElementById('lightboxImg').src = imgUrl;
+  document.getElementById('lightboxCat').textContent = cat;
+  document.getElementById('lightboxTitle').textContent = title;
+  document.getElementById('lightboxDesc').textContent = desc;
+  document.getElementById('lightboxWa').href = `https://wa.me/905464057575?text=${waMsg}`;
+
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function closeLightboxOnBg(event) {
+  if (event.target === document.getElementById('lightbox')) {
+    closeLightbox();
+  }
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeLightbox();
+});
+
+// ===== FOTOĞRAF GEÇİŞ FONKSİYONU =====
+function switchPhoto(btn) {
+  const imgDiv = btn.closest('.product-img');
+  const current = parseInt(imgDiv.dataset.current);
+  const next = current === 1 ? 2 : 1;
+  const imgInner = imgDiv.querySelector('.product-img-inner');
+  imgInner.style.backgroundImage = `url('${imgDiv.dataset['img' + next]}')`;
+  imgDiv.dataset.current = next;
+  imgDiv.querySelectorAll('.photo-dot').forEach((dot, i) => {
+    dot.classList.toggle('active', i === next - 1);
+  });
+}
+
 // ===== FAVORİ SİSTEMİ =====
 let favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
 

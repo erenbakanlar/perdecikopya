@@ -1,7 +1,6 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
-// JWT Token oluştur
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
     expiresIn: '30d'
@@ -15,7 +14,6 @@ exports.register = async (req, res) => {
   try {
     const { fullName, email, password, phone } = req.body;
 
-    // Kullanıcı zaten var mı kontrol et
     const userExists = await User.findOne({ email });
     if (userExists) {
       return res.status(400).json({
@@ -24,23 +22,16 @@ exports.register = async (req, res) => {
       });
     }
 
-    // Yeni kullanıcı oluştur
-    const user = await User.create({
-      fullName,
-      email,
-      password,
-      phone
-    });
+    const user = await User.create({ fullName, email, password, phone });
 
-    // Token oluştur ve gönder
-    const token = generateToken(user._id);
+    const token = generateToken(user.id);
 
     res.status(201).json({
       success: true,
       message: 'Kayıt başarılı',
       token,
       user: {
-        id: user._id,
+        id: user.id,
         fullName: user.fullName,
         email: user.email,
         phone: user.phone,
@@ -63,7 +54,6 @@ exports.login = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    // E-posta ve şifre kontrolü
     if (!email || !password) {
       return res.status(400).json({
         success: false,
@@ -71,8 +61,7 @@ exports.login = async (req, res) => {
       });
     }
 
-    // Kullanıcıyı bul (şifre ile birlikte)
-    const user = await User.findOne({ email }).select('+password');
+    const user = await User.findOne({ email });
 
     if (!user) {
       return res.status(401).json({
@@ -81,8 +70,7 @@ exports.login = async (req, res) => {
       });
     }
 
-    // Şifre kontrolü
-    const isPasswordCorrect = await user.comparePassword(password);
+    const isPasswordCorrect = await User.comparePassword(password, user.password);
 
     if (!isPasswordCorrect) {
       return res.status(401).json({
@@ -91,15 +79,14 @@ exports.login = async (req, res) => {
       });
     }
 
-    // Token oluştur ve gönder
-    const token = generateToken(user._id);
+    const token = generateToken(user.id);
 
     res.status(200).json({
       success: true,
       message: 'Giriş başarılı',
       token,
       user: {
-        id: user._id,
+        id: user.id,
         fullName: user.fullName,
         email: user.email,
         phone: user.phone,
@@ -125,7 +112,7 @@ exports.getMe = async (req, res) => {
     res.status(200).json({
       success: true,
       user: {
-        id: user._id,
+        id: user.id,
         fullName: user.fullName,
         email: user.email,
         phone: user.phone,

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-DuranOğlu Perde — a full-stack e-commerce site for curtains (perde). Turkish-language UI. Built with Vanilla JS + HTML/CSS on the frontend and Node.js/Express/MongoDB on the backend.
+DuranOğlu Perde — a full-stack e-commerce site for curtains (perde). Turkish-language UI. Built with Vanilla JS + HTML/CSS on the frontend and Node.js/Express/MySQL on the backend.
 
 ## Commands
 
@@ -46,17 +46,19 @@ Test credentials after seeding:
 
 Admin pages (`admin-*.html`) check `window.API.isAdmin()` and redirect if not admin.
 
-### Backend (Express + Mongoose)
+### Backend (Express + mysql2)
 ```
 backend/
 ├── server.js          # Entry point, mounts routes at /api/*
-├── config/db.js       # Mongoose connection
-├── models/            # User, Product, Order (Mongoose schemas)
+├── config/db.js       # MySQL connection pool + table creation
+├── models/            # User, Product, Order (SQL query wrappers)
 ├── controllers/       # authController, productController, orderController
 ├── routes/            # auth.js, products.js, orders.js
 ├── middleware/auth.js  # JWT verify middleware (protects routes)
 └── seed.js            # Populates DB with initial data
 ```
+
+MySQL tables: `users`, `products`, `orders`, `order_items`
 
 API base URL (frontend hardcoded): `http://localhost:5000/api`
 
@@ -68,8 +70,13 @@ API base URL (frontend hardcoded): `http://localhost:5000/api`
 ### Environment
 Backend requires `backend/.env`:
 ```
-MONGODB_URI=mongodb://localhost:27017/duranoglu-perde
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=
+DB_NAME=duranoglu_perde
 JWT_SECRET=<secret>
 PORT=5000
 NODE_ENV=development
 ```
+
+XAMPP MySQL default: host=localhost, user=root, password="" (boş)
