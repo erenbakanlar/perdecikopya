@@ -333,6 +333,7 @@ window.addEventListener('scroll', () => {
 });
 
 
+
 // Ürün verileri
 const products = [
   {
