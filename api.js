@@ -1,5 +1,5 @@
-// API Base URL
-const API_URL = 'http://localhost:5000/api';
+// API Base URL — relative path, works on any domain/port
+const API_URL = '/api';
 
 // Token yönetimi
 const getToken = () => localStorage.getItem('token');

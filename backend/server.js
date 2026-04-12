@@ -1,6 +1,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');
+const path = require('path');
 const { connectDB } = require('./config/db');
 
 // Environment variables
@@ -16,24 +17,24 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Routes
+// API Routes (önce tanımlanmalı)
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/products', require('./routes/products'));
 
-// Ana route
-app.get('/', (req, res) => {
-  res.json({
-    message: 'DuranOğlu Perde API',
-    version: '1.0.0',
-    endpoints: {
-      auth: '/api/auth',
-      products: '/api/products'
-    }
-  });
+// Frontend static dosyaları serve et (backend klasörünün bir üst dizini)
+const frontendPath = path.join(__dirname, '..');
+app.use(express.static(frontendPath, {
+  index: 'index.html',
+  extensions: ['html']
+}));
+
+// SPA fallback: bilinmeyen route'larda index.html döndür
+app.get('*', (req, res) => {
+  res.sendFile(path.join(frontendPath, 'index.html'));
 });
 
-// 404 handler
-app.use((req, res) => {
+// 404 handler (API için)
+app.use('/api/*', (req, res) => {
   res.status(404).json({
     success: false,
     message: 'Endpoint bulunamadı'
