@@ -108,7 +108,7 @@ const seedDatabase = async () => {
       fullName: 'Admin',
       email: 'admin@duranogluperde.com',
       password: 'admin123',
-      phone: '05464057575',
+      phone: 'MÜŞTERİ TELEFONU',
       role: 'admin'
     });
     console.log('✅ Admin kullanıcı eklendi');

@@ -1,7 +1,7 @@
 {
   "name": "duranoglu-perde-backend",
   "version": "1.0.0",
-  "description": "DuranOğlu Perde E-Ticaret Backend API",
+  "description": "MÜŞTERİ ADI E-Ticaret Backend API",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

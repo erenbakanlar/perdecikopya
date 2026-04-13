@@ -14,7 +14,7 @@ function openLightbox(btn) {
   document.getElementById('lightboxCat').textContent = cat;
   document.getElementById('lightboxTitle').textContent = title;
   document.getElementById('lightboxDesc').textContent = desc;
-  document.getElementById('lightboxWa').href = `https://wa.me/905464057575?text=${waMsg}`;
+  document.getElementById('lightboxWa').href = `https://wa.me/MÜŞTERİ TELEFONU?text=${waMsg}`;
 
   document.getElementById('lightbox').classList.add('open');
   document.body.style.overflow = 'hidden';

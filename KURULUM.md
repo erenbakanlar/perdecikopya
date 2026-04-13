@@ -1,4 +1,4 @@
-# 🚀 DuranOğlu Perde - Kurulum ve Çalıştırma Rehberi
+# 🚀 MÜŞTERİ ADI - Kurulum ve Çalıştırma Rehberi
 
 ## Adım 1: Backend Bağımlılıklarını Yükleyin
 

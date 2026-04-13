@@ -111,7 +111,7 @@ function goToCheckout() {
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
   lines.push(`\nToplam: ₺${total.toFixed(2)}`);
   const message = encodeURIComponent('Merhaba, sipariş vermek istiyorum:\n\n' + lines.join('\n'));
-  window.open(`https://wa.me/905464057575?text=${message}`, '_blank');
+  window.open(`https://wa.me/MÜŞTERİ TELEFONU?text=${message}`, '_blank');
 }
 
 function showNotification(message) {

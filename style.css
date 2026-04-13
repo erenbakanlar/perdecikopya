@@ -131,43 +131,95 @@ ul { list-style: none; }
   box-shadow: 0 4px 20px rgba(0,0,0,0.12);
 }
 .header-inner {
-  display: flex; 
-  align-items: center; 
-  gap: 32px; 
-  height: 80px;
-  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  height: 70px;
+  padding: 0 24px 0 72px;
   border-bottom: none;
   transition: none;
 }
 .header.scrolled .header-inner {
-  height: 65px;
+  height: 60px;
   align-items: center;
-  gap: 20px;
+  gap: 16px;
 }
 .logo {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   flex-shrink: 0;
-  margin-left: -255px;
-  margin-top: 5px;
-  margin-bottom: -70px;
+  margin: 0;
   transition: none;
   position: relative;
   z-index: 10;
 }
 .header.scrolled .logo {
-  margin-bottom: -15px;
-  margin-left: -100px;
+  margin: 0;
   align-items: center;
 }
 .logo-img {
-  height: 285px;
+  height: 54px;
   width: auto;
   object-fit: contain;
   transition: none;
 }
 .header.scrolled .logo-img {
-  height: 155px;
+  height: 46px;
+}
+.logo-text {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--primary);
+  white-space: nowrap;
+  transform: translate(-52px, 5px);
+  border-bottom: 1px solid var(--primary);
+  padding-bottom: 3px;
+}
+.header.scrolled .logo-text {
+  display: none;
+}
+
+/* Geniş monitörler (1700px+): logo solda büyük, içerik sağa kaydırılmış */
+@media (min-width: 1700px) {
+  .header-inner {
+    gap: 24px;
+    height: 100px;
+  }
+  .header.scrolled .header-inner {
+    height: 72px;
+    gap: 20px;
+  }
+  .logo {
+    align-items: center;
+    margin: 0;
+    flex-shrink: 0;
+  }
+  .header.scrolled .logo {
+    margin: 0;
+    align-items: center;
+  }
+  .logo-img {
+    height: 88px;
+  }
+  .header.scrolled .logo-img {
+    height: 64px;
+  }
+  /* Arama çubuğunu sağa it — logo ile araya otomatik boşluk girer */
+  .header-search {
+    margin-left: auto;
+    flex: 0 0 480px;
+    max-width: 480px;
+  }
+  .header.scrolled .header-search {
+    opacity: 0;
+    visibility: hidden;
+    flex: 0 0 0;
+    max-width: 0;
+    margin-left: 0;
+    padding: 0;
+    border: none;
+  }
 }
 
 /* Header Search */
@@ -1453,79 +1505,31 @@ ul { list-style: none; }
 .footer-col .logo-img {
   height: 250px;
 }
+.footer-col .logo-text {
+  transform: translate(30px, -15px);
+}
 
 @media (max-width: 1380px) {
   /* Kategori menüsü hamburger'a taşındı */
   .category-menu { display: none; }
   .header.scrolled .category-menu { display: none; }
   .hamburger { display: flex; }
-
-  /* Logo laptop için temiz - negatif marginlar kaldırıldı */
-  .logo {
-    margin-left: 0;
-    margin-bottom: 0;
-    margin-top: 0;
-  }
-  .logo-img {
-    height: 76px;
-  }
-  .header.scrolled .logo {
-    margin-left: 0;
-    margin-bottom: 0;
-    margin-top: 0;
-  }
-  .header.scrolled .logo-img {
-    height: 76px;
-  }
 }
 
 @media (max-width: 1300px) {
-  /* Laptop: logo header içinde temiz, taşma yok */
-  .logo {
-    margin-left: 0;
-    margin-bottom: 0;
-    margin-top: 0;
-  }
-  .logo-img {
-    height: 72px;
-  }
-  .header.scrolled .logo {
-    margin-left: 0;
-    margin-bottom: 0;
-    margin-top: 0;
-  }
-  .header.scrolled .logo-img {
-    height: 72px;
-  }
-  .header-actions {
-    margin-left: 16px;
-    margin-right: 8px;
-  }
-}
-
-@media (max-width: 1100px) {
-  .logo {
-    margin-left: 0;
-    margin-bottom: 0;
-    margin-top: 0;
-  }
-  .logo-img {
-    height: 68px;
-  }
-  .header.scrolled .logo {
-    margin-left: 0;
-    margin-bottom: 0;
-    margin-top: 0;
-  }
-  .header.scrolled .logo-img {
-    height: 68px;
-  }
   .header-actions {
     margin-left: 8px;
     margin-right: 4px;
   }
+}
+
+@media (max-width: 1100px) {
+  .header-actions {
+    margin-left: 4px;
+    margin-right: 0;
+  }
   .header-search {
-    max-width: 360px;
+    max-width: 340px;
   }
   .about-grid { gap: 40px; }
   .contact-grid { gap: 36px; }

@@ -1,7 +1,7 @@
 {
   "name": "duranoglu-perde-frontend",
   "version": "1.0.0",
-  "description": "DuranOğlu Perde E-Ticaret Frontend",
+  "description": "MÜŞTERİ ADI E-Ticaret Frontend",
   "main": "script.js",
   "scripts": {
     "dev": "vite",

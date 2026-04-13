@@ -1,4 +1,4 @@
-# DuranOğlu Perde E-Ticaret Sistemi
+# MÜŞTERİ ADI E-Ticaret Sistemi
 
 Full-stack e-ticaret uygulaması - Node.js, Express, MongoDB ve Vanilla JavaScript
 
